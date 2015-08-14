@@ -3,12 +3,12 @@ var express = require('express');
 
    app.use(express.static('public'));
    // create a route
-   app.get('/', function (req, res) {
-   res.send('Hello World!');
-   });
-   app.get('/hello', function (req, res) {
-     res.send('Hello Codex!');
-   });
+   // app.get('/', function (req, res) {
+   // res.send('Hello World!');
+   // });
+   // app.get('/hello', function (req, res) {
+   //   res.send('Hello Codex!');
+   // });
 
    //start the server
    var server = app.listen(3000, function () {
