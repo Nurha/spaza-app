@@ -5,6 +5,8 @@ var item = require('./itemsSold');
 var mostPopularProd = require('./mostPopular')
 var categoryCalculations = require('./categoryCalculations')
 var findMostPopularCategory = require('./findMostPopularCategory')
+var leastPopularProd = require('./leastPopular')
+var leastPopularCat = require('./findLeastPopularCategory')
 
 var app = express();
 var fs = require("fs");
@@ -35,6 +37,16 @@ app.get('/mostPopularCategory', function (req, res){
 	var categoryName = findMostPopularCategory.findMostProfitableCategory('./Nelisa Sales History.csv');
 	res.render('mostPopularCategory',{category: categoryName});
 });
+
+app.get('/leastPopular', function (req, res){
+	var leastPopularProduct = leastPopularProd.leastPopular('./Nelisa Sales History.csv');
+	res.render('leastPopProd',{product: leastPopularProduct});
+});
+
+app.get('/leastPopularCategory', function (req, res){
+	var catName = leastPopularCat.findLeastPopularCategory ('./Nelisa Sales History.csv');
+	res.render('leastPopularCategory',{category : catName});
+}); 
  
  var server = app.listen(3000, function () {
 
