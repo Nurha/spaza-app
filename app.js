@@ -2,11 +2,11 @@ var express = require('express');
 var exphbs  = require('express-handlebars');
 
 var item = require('./itemsSold');
-var mostPopularProd = require('./mostPopular')
-var categoryCalculations = require('./categoryCalculations')
-var findMostPopularCategory = require('./findMostPopularCategory')
-var leastPopularProd = require('./leastPopular')
-var leastPopularCat = require('./findLeastPopularCategory')
+var mostPopularProd = require('./mostPopular');
+var categoryCalculations = require('./categoryCalculations');
+var findMostPopularCategory = require('./findMostPopularCategory');
+var leastPopularProd = require('./leastPopular');
+var leastPopularCat = require('./findLeastPopularCategory');
 
 var app = express();
 var fs = require("fs");
@@ -15,7 +15,7 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
  
 app.get('/', function (req, res) {
-    res.render('home');
+    res.render('home', {layout : false});
 });
 
 app.get('/sold', function (req, res) {

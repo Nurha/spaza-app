@@ -13,7 +13,7 @@ exports.leastPopular = function ( fileName) {
         if(productsMap[prod] < min){
             min = productsMap[prod];
             leastPopularProdct = {
-                prodName: prod,
+                productName: prod,
                 amount: min
             };
         };

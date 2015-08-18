@@ -14,7 +14,7 @@ exports.findMostProfitableCategory = function ( fileName) {
             max = categoryMap[category];
             mostPopularCategory = {
                 categoryName: category,
-                qty: max
+                amount: max
             };
         };
     };

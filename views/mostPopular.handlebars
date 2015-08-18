@@ -1,4 +1,9 @@
 <h1>Most Popular Product</h1>
+<!--{{#product}}
+	<h2><h2> Product: {{prodName}}</h2>
+		<h2>Amt:{{amount}}</h2></h2>
+{{/product}}-->
 {{#each product}}
-	<h2> {{@key}} - {{this}} </h2>
+	<h2>{{@key}} - {{this}}</h2>
+
 {{/each}}

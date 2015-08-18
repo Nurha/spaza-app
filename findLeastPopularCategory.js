@@ -13,7 +13,7 @@ exports.findLeastPopularCategory = function ( fileName) {
             min = categoryMap[category];
             leastPopularCategory = {
                 categoryName: category,
-                qty: min
+                amount: min
             };
         };
     };
