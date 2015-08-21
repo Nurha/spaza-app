@@ -1,33 +1,33 @@
-var fs = require("fs"); 
+var fs = require("fs");
 
 // find how many how each product was sold 
-exports.productsSold = function ( fileName) {
-     var productsMap = {};
-     var quantitySold = [];
-     // body...
+exports.productsSold = function(fileName) {
+    var productsMap = {};
+    var quantitySold = [];
+    // body...
 
-     var fileContent = fs.readFileSync(fileName, "utf8");
-     var products = fileContent.split("\r");
-     
-     // remove the first line from the list
-     products = products.splice(1);
+    var fileContent = fs.readFileSync(fileName, "utf8");
+    var products = fileContent.split("\r");
 
-     products.forEach( function (product) {
-      
-         var productColumns = product.split(";");
-         var productName = productColumns[2];
-         var quantity = Number(productColumns[3]);
+    // remove the first line from the list
+    products = products.splice(1);
 
-         if (productsMap[productName] === undefined ) {
-             quantitySold.push(productName);
-             productsMap[productName] = 0;   
-         }
+    products.forEach(function(product) {
 
-         productsMap[productName] += quantity;
+        var productColumns = product.split(";");
+        var productName = productColumns[2];
+        var quantity = Number(productColumns[3]);
 
-       });
-  
-    
-     //console.log(productsMap);
-     return productsMap;
+        if (productsMap[productName] === undefined) {
+            quantitySold.push(productName);
+            productsMap[productName] = 0;
+        }
+
+        productsMap[productName] += quantity;
+
+    });
+
+
+    //console.log(productsMap);
+    return productsMap;
 };
