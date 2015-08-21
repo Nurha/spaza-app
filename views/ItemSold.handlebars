@@ -1,7 +1,15 @@
 <h1>Product List</h1>
-<table>
-{{#each products}}
-	
-	<h2>{{@key}} - {{this}}</h2>
-</table>	
-{{/each}}
+<table class="table">
+	<tr>
+        <th>Product Name</th>
+        <th>amount</th>
+	</tr>
+	{{#each products}}
+		<tr>
+		
+			<td>{{@key}}</td> 
+			<td>{{this}}</td>
+		
+		</tr>
+	{{/each}}
+</table>
