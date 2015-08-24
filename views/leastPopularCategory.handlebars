@@ -1,6 +1,6 @@
-<h1>Least Popular Category</h1><table class = "table">
-	<tr>
-		<th>Product Name</th>
+<h1>Least Popular Category</h1>
+	<!-- <tr>
+		<th>Category Name</th>
         <th>Amount</th>
 	</tr>
 {{#each category}}
@@ -9,4 +9,17 @@
 	 <td> {{this}} </td>
 	</tr>
 {{/each}}
+</table> -->
+<table class>
+	<thead>
+		<th>Category Name</th>
+		<th>Amount</th>
+	</thead>
+	{{#category}}
+		<tr>
+			<td>{{categoryName}}</td>
+			<td>{{amount}}</td>
+		</tr>
+	{{/category}}
+                  
 </table>

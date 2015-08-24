@@ -1,99 +1,15 @@
 
 body{
 	background:#A3A3CC; 
-	/*margin:0;
-	padding:0;
-	font-family:Helvetica;*/
+	
 }
-/*.dropdown {
-		position:relative;
-	    
-}	 
-	.nav,.nav ul {
-	    list-style:none;
-	    margin:0;
-	    padding:0;
-	}
-	 
-	.nav {
-	    position:relative;
-	}
-	 
-	.nav ul {
-	    height:0;
-	    left:0;
-	    overflow:hidden;
-	    position:absolute;
-	    top:46px;
-	}
-	 
-	.nav li {
-	    float:left;
-	    position:relative;
-	}
-	 
-	.nav li a {
-	    -moz-transition:0.5s;
-	    -o-transition:0.5s;
-	    -webkit-transition:0.5s;
-	    background-color:#666680;
-	    border:1px solid #292933;
-	    color:#292933;
-	    display:block;
-	    font-size:16px;
-	    line-height:35px;
-	    padding:5px 20px;
-	    text-decoration:none;
-	    transition:0.5s;
-	}
-	 
-	.nav li:hover > a {
-	    background:#525266;
-	    border-color:#292933;
-	    color:#fff;
-	}
-	 
-	.nav li:hover ul.subs {
-	    height:auto;
-	    width:180px;
-	}
-	 
-	.nav ul li {
-	    -moz-transition:0.5s;
-	    -o-transition:0.5s;
-	    -webkit-transition:0.5s;
-	    opacity:0;
-	    transition:0.5s;
-	    width:100%;
 
-}	 
-	.nav li ul li {
-	    -moz-transition-delay:0s;
-	    -o-transition-delay:0s;
-	    -webkit-transition-delay:0s;
-	    transition-delay:0s;
-	}
-	 
-	.nav li:hover ul li {
-	    opacity:1;
-	    -moz-transition-delay:0.5s;
-	    -o-transition-delay:0.5s;
-	    -webkit-transition-delay:0.5s;
-	    transition-delay:0.5s;
-	}
-	 
-	.nav ul li a {
-	    background:#525266;
-	    border-color:#292933;
-	    color:#fff;
-	    line-height:1px;
-	    -moz-transition:1.5s;
-	    -o-transition:1.5s;
-	    -webkit-transition:1.5s;
-	    transition:1.5s;
-	}
-	 
-	.nav li:hover ul li a {
-	    line-height:35px;
-	}*/
-	 
+table{
+	width:50%;
+	border-collapse: separate;
+	border:1px solid black;
+}
+
+td {
+	border:1px solid black;
+}
