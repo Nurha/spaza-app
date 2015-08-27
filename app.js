@@ -10,7 +10,8 @@ var leastPopularCat = require('./findLeastPopularCategory');
 
 var app = express();
 var fs = require("fs");
-app.use(express.static('.'));
+   app.use(express.static('public'));
+
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
 }));
