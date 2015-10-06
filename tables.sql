@@ -23,6 +23,7 @@ CREATE TABLE `Products` (
      `sply_id` int NOT NULL auto_increment,
      `supply_name` char(100),
      PRIMARY KEY(sply_id)
+    CONSTRAINT uc_supply_name  UNIQUE (supply_name)
 );
 
 DROP TABLE IF EXISTS `Purchases`;
