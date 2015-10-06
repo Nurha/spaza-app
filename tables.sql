@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS `Categories`; 
 CREATE TABLE `Categories` (
     `cat_id` int NOT NULL auto_increment,
     `cat_name` char(100),
@@ -6,6 +7,7 @@ CREATE TABLE `Categories` (
     
 );
 
+DROP TABLE IF EXISTS `Products`; 
 CREATE TABLE `Products` (
     `prod_id` int NOT NULL auto_increment,
     `prod_name` char(100),
@@ -16,12 +18,14 @@ CREATE TABLE `Products` (
 
 );
 
+ DROP TABLE IF EXISTS `Suppliers`;
  CREATE TABLE `Suppliers` (
      `sply_id` int NOT NULL auto_increment,
      `supply_name` char(100),
      PRIMARY KEY(sply_id)
 );
 
+DROP TABLE IF EXISTS `Purchases`;
 CREATE TABLE `Purchases` (
     `purchase_id` int NOT NULL auto_increment,
     `prod_id` int(42),
@@ -34,6 +38,7 @@ CREATE TABLE `Purchases` (
     PRIMARY KEY(purchase_id)
 );
 
+DROP TABLE IF EXISTS `Sales`;
 CREATE TABLE  `Sales` (
     `sales_id` int NOT NULL auto_increment,
     `prod_id` int(42),
