@@ -1,3 +1,3 @@
-INSERT INTO Suppliers(supply_name) VALUES('Epping Market'); 
-INSERT INTO Suppliers(supply_name) VALUES('HomeMade'); 
-INSERT INTO Suppliers(supply_name) VALUES('Makro'); 
+INSERT INTO Suppliers(supplier_name) VALUES('Epping Market'); 
+INSERT INTO Suppliers(supplier_name) VALUES('HomeMade'); 
+INSERT INTO Suppliers(supplier_name) VALUES('Makro'); 
