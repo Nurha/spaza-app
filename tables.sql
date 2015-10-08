@@ -41,12 +41,10 @@ CREATE TABLE `Purchases` (
 DROP TABLE IF EXISTS `Sales`;
 CREATE TABLE  `Sales` (
     `sales_id` int NOT NULL auto_increment,
-    `category_id` int(42),
     `product_id` int(42),
     `date` date NOT NULL,
     `sales_price` int(42),
     `qty` int(42),
     FOREIGN KEY (product_id) REFERENCES Products(product_id),
-    FOREIGN KEY(category_id) REFERENCES Categories(category_id),
     PRIMARY KEY(sales_id)
 );
