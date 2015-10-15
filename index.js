@@ -36,7 +36,8 @@ function errorHandler(err, req, res, next) {
 }
 
 //setup the handlers
-app.get('/', products.show);
+app.get('/', products.home);
+//app.get('/', products.show);
 app.get('/products', products.show);
 app.get('/products/edit/:product_id', products.get);
 app.post('/products/update/:product_id', products.update);
