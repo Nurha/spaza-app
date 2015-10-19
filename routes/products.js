@@ -19,7 +19,7 @@ exports.home = function(req, res){
 } 
 
 exports.showAdd = function(req, res){
-	res.render('add');
+	res.render('Products');
 }
 
 exports.add = function (req, res, next) {

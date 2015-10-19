@@ -5,7 +5,8 @@ var express = require('express'),
     mysql = require('mysql'),
     myConnection = require('express-myconnection'),
     bodyParser = require('body-parser'),
-    products = require('./routes/products');
+    products = require('./routes/products'),
+    sales = require('./routes/sales');
 
 var app = express();
 
@@ -37,7 +38,6 @@ function errorHandler(err, req, res, next) {
 
 //setup the handlers
 app.get('/', products.home);
-//app.get('/', products.show);
 app.get('/products', products.show);
 app.get('/products/edit/:product_id', products.get);
 app.post('/products/update/:product_id', products.update);
@@ -45,6 +45,12 @@ app.get('/products/add', products.showAdd);
 app.post('/products/add', products.add);
 //this should be a post but this is only an illustration of CRUD - not on good practices
 app.get('/products/delete/:product_id', products.delete);
+
+app.get('/sales', sales.showSales);
+app.get('/sales/edit/:sales_id', sales.getSales);
+app.post('/sales/updateSales/ :sales_id', sales.updateSales);
+app.get('/sales/add', sales.showAddSales);
+app.post('/sales/add', sales.addSales);
 
 app.use(errorHandler);
 
