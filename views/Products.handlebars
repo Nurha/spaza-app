@@ -1,17 +1,4 @@
-<h1>Products</h1>
-<h1>Add</h1>
-
-<form action="/products/add" method="POST">
-	Description: <input type="text" name="product_name" value="{{product_name}}">
-	
-		<select name="category_id">
-			{{#categories}}
-			<option value="{{category_id}}">{{category_name}}</option>
-			{{/categories}}
-		</select>
-	
-	<input type="submit">
-</form>
+<h1>Product List</h1>
 
 <a href="/products/add">Add product</a>
 {{#products}}

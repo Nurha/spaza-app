@@ -1,22 +1,27 @@
 exports.showSales = function (req, res, next){
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
-		connection.query('SELECT  Products.product_name, Sales.qty, Sales.date, Sales.sales_price FROM Sales INNER JOIN Products ON Sales.product_id = Products.product_id ORDER BY Sales.date', [], function(err, results){
-			connection.query('SELECT * FROM Products', [], function(err, products){
-				if (err) return next(err);
+		connection.query('SELECT  Sales.sales_id, Products.product_name, Sales.qty, Sales.date, Sales.sales_price FROM Sales INNER JOIN Products ON Sales.product_id = Products.product_id ORDER BY Sales.date', [], function(err, results){
+			
 				res.render('Sales',{
 					no_sales : results.length === 0,
 					sales : results,
-					products : products,
-				});
+					
+				
 			});
 		});
 	});
 };
 
 exports.showAddSales = function(req, res){
-	res.render('Sales');
-}
+	req.getConnection(function(err, connection){
+		if (err) return next(err);
+		connection.query('SELECT * FROM Products', [], function(err, products){
+			if (err) return next(err);
+			res.render('addSales',{ products : products});
+		});
+	});
+};
 
 exports.addSales = function(req, res, next){
 	req.getConnection(function(err, connection){
@@ -58,7 +63,7 @@ exports.updateSales = function(req, res, next){
     });
 };
 
-exports.deleteSales = function(req, res, next){
+exports.delete = function(req, res, next){
 	var sales_id = req.params.sales_id;
 	req.getConnection(function(err, connection){
 		connection.query('DELETE FROM Sales WHERE sales_id = ?', [sales_id], function(err,rows){

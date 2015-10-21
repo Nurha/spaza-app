@@ -2,14 +2,14 @@ exports.show = function (req, res, next) {
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
 		connection.query('SELECT * from Products', [], function(err, results) {
-        	connection.query('SELECT * from Categories', [], function(err, categories) {
+        	
         		if (err) return next(err);
     			res.render( 'Products', {
 					no_products : results.length === 0,
 					products : results,
-					categories: categories
+					
     			});
-      		});
+      		
 		});
 	});
 };
@@ -19,8 +19,14 @@ exports.home = function(req, res){
 } 
 
 exports.showAdd = function(req, res){
-	res.render('Products');
-}
+	req.getConnection(function(err, connection){
+		if (err) return next(err);
+	connection.query('SELECT * from Categories', [], function(err, categories) {
+	res.render('addProducts',{categories: categories});
+
+	});
+	});
+};
 
 exports.add = function (req, res, next) {
 	req.getConnection(function(err, connection){

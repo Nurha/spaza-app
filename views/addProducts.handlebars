@@ -1,0 +1,15 @@
+<h1>Add a new product</h1>
+<br />
+<form action="/products/add" method="POST">
+	Enter product name: <br /> <input type="text" name="product_name" value="{{product_name}}"><br />
+	<br />Category selection:<br />
+		<select name="category_id">
+			{{#categories}}
+			<option value="{{category_id}}">{{category_name}}</option>
+			{{/categories}}
+		</select><br />
+	
+<br />	<input type="submit">
+</form>
+
+ 

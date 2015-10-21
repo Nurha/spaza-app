@@ -43,7 +43,6 @@ app.get('/products/edit/:product_id', products.get);
 app.post('/products/update/:product_id', products.update);
 app.get('/products/add', products.showAdd);
 app.post('/products/add', products.add);
-//this should be a post but this is only an illustration of CRUD - not on good practices
 app.get('/products/delete/:product_id', products.delete);
 
 app.get('/sales', sales.showSales);
@@ -51,6 +50,8 @@ app.get('/sales/edit/:sales_id', sales.getSales);
 app.post('/sales/updateSales/ :sales_id', sales.updateSales);
 app.get('/sales/add', sales.showAddSales);
 app.post('/sales/add', sales.addSales);
+app.get('/sales/delete/:sales_id', sales.delete);
+
 
 app.use(errorHandler);
 
