@@ -9,7 +9,7 @@ FROM sales_csv
 INNER JOIN Products
 ON Products.product_name = sales_csv.stock_item;
 
-SELECT  Products.product_name, Sales.qty, Sales.date, Sales.sales_price
+SELECT Sales.sales_id, Products.product_name, Sales.qty, Sales.date, Sales.sales_price
 FROM Sales
 INNER JOIN Products ON Sales.product_id = Products.product_id
 ORDER BY Sales.date

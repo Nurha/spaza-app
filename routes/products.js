@@ -1,12 +1,12 @@
 exports.show = function (req, res, next) {
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
-		connection.query('SELECT * from Products', [], function(err, results) {
+		connection.query('SELECT Products.product_id, Products.product_name, Categories.category_name FROM Products INNER JOIN Categories ON Categories.category_id = Products.category_id ORDER BY product_id', [], function(err, results) {
         	
         		if (err) return next(err);
     			res.render( 'Products', {
 					no_products : results.length === 0,
-					products : results,
+					products : results
 					
     			});
       		
