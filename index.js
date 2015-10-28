@@ -44,9 +44,10 @@ app.post('/products/update/:product_id', products.update);
 app.get('/products/add', products.showAdd);
 app.post('/products/add', products.add);
 app.get('/products/delete/:product_id', products.delete);
+app.get('/products/productPopularity', products.productPopularity);
 
 app.get('/sales', sales.showSales);
-app.get('/sales/edit/:sales_id', sales.getSales);
+app.get('/sales/editSales/:sales_id', sales.getSales);
 app.post('/sales/updateSales/ :sales_id', sales.updateSales);
 app.get('/sales/add', sales.showAddSales);
 app.post('/sales/add', sales.addSales);

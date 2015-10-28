@@ -1,0 +1,14 @@
+<h1>Popularity List</h1>
+
+<table class = "table" id = "productPopularity">
+<tr>
+	<th>Product name</th>
+	<th>Quantity</th>
+</tr>
+{{#productPopularity}}
+	<tr>
+		<th>{{product_name}}</th>
+		<th>{{qty}}</th>
+	</tr>
+{{/productPopularity}}
+</table>
