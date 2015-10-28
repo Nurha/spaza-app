@@ -6,7 +6,8 @@ var express = require('express'),
     myConnection = require('express-myconnection'),
     bodyParser = require('body-parser'),
     products = require('./routes/products'),
-    sales = require('./routes/sales');
+    sales = require('./routes/sales'),
+    categories = require('./routes/categories');
 
 var app = express();
 
@@ -52,6 +53,8 @@ app.post('/sales/updateSales/ :sales_id', sales.updateSales);
 app.get('/sales/add', sales.showAddSales);
 app.post('/sales/add', sales.addSales);
 app.get('/sales/delete/:sales_id', sales.delete);
+
+app.get('/categories', categories.showCategories);
 
 
 app.use(errorHandler);

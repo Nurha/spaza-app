@@ -1,0 +1,19 @@
+<h1>Category List</h1>
+
+<a href ="/categories/addCategories">Add a category</a>
+
+<table class = "table" id = "categoryList">
+	<tr>
+		<th>Category id</th>
+		<th>Category name</th>
+	</tr>
+	{{#categories}}
+		<tr>
+			<th>{{category_id}}</th>
+			<th>{{category_name}}</th>
+		
+		<td><a href="/categories/edit/{{category_id}}">Edit</a></td>
+		<td><a href="/categories/delete/{{category_id}}">Delete</a></td>
+		</tr>
+	{{/categories}}
+</table>
