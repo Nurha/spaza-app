@@ -1,12 +1,5 @@
 <h1>Sales record update</h1>
 
-<!-- {{#data}}
-<form action="/sales/updateSales/{{sales_id}}" method="POST">
-	Description: <input type="text" name="product_name" value="{{product_name}}">	
-	<input type="submit">
-</form>
-{{/data}} -->
-
 <br /><form action="/sales/editSales/{{sales_id}}" method="POST">
 		  Date :<br /> <input type="date" name="date" value="{{date}}"><br />
 	<br />Quantity Sold :<br /> <input type="number" name="qty" value="{{qty}}"><br />
