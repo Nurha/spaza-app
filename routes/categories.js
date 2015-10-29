@@ -37,26 +37,26 @@ exports.addCategories = function(req, res, next){
 	});
 };
 
-// exports.getCategories = function(req, res, next){
-// 	var category_id = req.params.category_id;
-// 	req.getConnection(function(err, connection){
-// 		connection.query('SELECT * FROM Categories WHERE category_id = ?', [category_id], function(err, rows){
-// 			if(err) return next(err);
-// 			res.render('editCategories', {page_title:'Edit Customers - Node.js', data : rows[0]});
-// 		});
-// 	});
-// };
+exports.getCategories = function(req, res, next){
+	var category_id = req.params.category_id;
+	req.getConnection(function(err, connection){
+		connection.query('SELECT * FROM Categories WHERE category_id = ?', [category_id], function(err, rows){
+			if(err) return next(err);
+			res.render('editCategories', {page_title:'Edit Categories - Node.js', data : rows[0]});
+		});
+	});
+};
 
-// exports.updateCategories = function(req, res, next){
-// 	var data = JSON.parse(JSON.stringify(req.body));
-//   	var category_id = req.params.category_id;
-//   	req.getConnection(function(err, connection){
-// 		connection.query('UPDATE Categories SET ? WHERE category_id = ?', [data, category_id], function(err, rows){
-//     		if (err) next(err);
-//           	res.redirect('/categories');
-//     	});
-// 	});
-// };
+exports.updateCategories = function(req, res, next){
+	var data = JSON.parse(JSON.stringify(req.body));
+  	var category_id = req.params.category_id;
+  	req.getConnection(function(err, connection){
+		connection.query('UPDATE Categories SET ? WHERE category_id = ?', [data, category_id], function(err, rows){
+    		if (err) next(err);
+          	res.redirect('/categories');
+    	});
+	});
+};
 
 exports.delete = function(req, res, next){
 	var category_id = req.params.category_id;

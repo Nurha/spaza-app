@@ -57,7 +57,8 @@ app.get('/sales/delete/:sales_id', sales.delete);
 app.get('/categories', categories.showCategories);
 app.get('/categories/addCategories', categories.showAddCategories);
 app.post('/categories/addCategories', categories.addCategories);
-//app.post('/categories/updateCategories/ :category_id', categories.updateCategories);
+app.get('/categories/editCategories/:category_id', categories.getCategories);
+app.post('/categories/updateCategories/:category_id', categories.updateCategories);
 app.get('/categories/delete/:category_id', categories.delete);
 app.get('/categories/categoriesPopularity', categories.categoriesPopularity);
 
