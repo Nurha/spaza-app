@@ -8,7 +8,8 @@ var express = require('express'),
     products = require('./routes/products'),
     sales = require('./routes/sales'),
     categories = require('./routes/categories'),
-    suppliers = require('./routes/suppliers');
+    suppliers = require('./routes/suppliers'),
+    purchases = require('./routes/purchases');
 
 var app = express();
 
@@ -49,10 +50,10 @@ app.get('/products/delete/:product_id', products.delete);
 app.get('/products/productPopularity', products.productPopularity);
 
 app.get('/sales', sales.showSales);
-app.get('/sales/editSales/:sales_id', sales.getSales);
-app.post('/sales/updateSales/ :sales_id', sales.updateSales);
 app.get('/sales/add', sales.showAddSales);
 app.post('/sales/add', sales.addSales);
+app.get('/sales/editSales/:sales_id', sales.getSales);
+app.post('/sales/updateSales/ :sales_id', sales.updateSales);
 app.get('/sales/delete/:sales_id', sales.delete);
 
 app.get('/categories', categories.showCategories);
@@ -69,6 +70,8 @@ app.post('/suppliers/addSuppliers', suppliers.addSuppliers);
 app.get('/suppliers/editSuppliers/:supplier_id', suppliers.getSuppliers);
 app.post('/suppliers/updateSuppliers/:supplier_id', suppliers.updateSuppliers);
 app.get('/suppliers/delete/:supplier_id', suppliers.delete);
+
+app.get('/purchases', purchases.showPurchases);
 
 app.use(errorHandler);
 
