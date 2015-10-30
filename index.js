@@ -7,7 +7,8 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     products = require('./routes/products'),
     sales = require('./routes/sales'),
-    categories = require('./routes/categories');
+    categories = require('./routes/categories'),
+    suppliers = require('./routes/suppliers');
 
 var app = express();
 
@@ -62,6 +63,12 @@ app.post('/categories/updateCategories/:category_id', categories.updateCategorie
 app.get('/categories/delete/:category_id', categories.delete);
 app.get('/categories/categoriesPopularity', categories.categoriesPopularity);
 
+app.get('/suppliers', suppliers.showSuppliers);
+app.get('/suppliers/addSuppliers', suppliers.showAddSuppliers);
+app.post('/suppliers/addSuppliers', suppliers.addSuppliers);
+app.get('/suppliers/editSuppliers/:supplier_id', suppliers.getSuppliers);
+app.post('/suppliers/updateSuppliers/:supplier_id', suppliers.updateSuppliers);
+app.get('/suppliers/delete/:supplier_id', suppliers.delete);
 
 app.use(errorHandler);
 

@@ -1,0 +1,19 @@
+<h1>Suppliers List</h1>
+
+<a href ="/suppliers/addSuppliers">Add a new supplier</a>
+
+<table class = "table" id = "suppliers">
+	<tr>
+		<th>Supplier id</th>
+		<th>Supplier name</th>
+	</tr>
+	{{#suppliers}}
+		<tr>
+			<td>{{supplier_id}}</td>
+			<td>{{supplier_name}}</td>
+
+			<td><a href="/suppliers/editSuppliers/{{supplier_id}}">Edit</a></td>
+			<td><a href="/suppliers/delete/{{supplier_id}}">Delete</a></td>
+		</tr>
+	{{/suppliers}}	
+</table>
