@@ -72,6 +72,8 @@ app.post('/suppliers/updateSuppliers/:supplier_id', suppliers.updateSuppliers);
 app.get('/suppliers/delete/:supplier_id', suppliers.delete);
 
 app.get('/purchases', purchases.showPurchases);
+app.get('/purchases/addPurchases', purchases.showAddPurchases);
+app.post('/purchases/addPurchases', purchases.addPurchases);
 
 app.use(errorHandler);
 

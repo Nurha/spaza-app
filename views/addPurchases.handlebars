@@ -1,1 +1,21 @@
 <h1>Add a purchase</h1>
+
+<br /><form action="/purchases/addPurchases" method="POST">
+		  Date :<br /> <input type="date" name="date" value="{{date}}"><br />
+	<br />Quantity Sold :<br /> <input type="number" name="qty" value="{{qty}}"><br />
+	<br />Cost Price :<br /><input type="number" name="cost_price" value="{{cost_price}}"><br />
+	<br />Product selection:<br />
+		<select name="product_id">
+			{{#products}}
+			<option value="{{product_id}}">{{product_name}}</option>
+			{{/products}}
+		</select><br />
+		<br />Supplier selection:<br />
+		<select name="supplier_id">
+			{{#suppliers}}
+			<option value="{{supplier_id}}">{{supplier_name}}</option>
+			{{/suppliers}}
+		</select><br />
+	
+	<br /><input type="submit"><br />
+</form>
