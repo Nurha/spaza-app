@@ -3,6 +3,7 @@
 {{#data}}
 <form action="/products/update/{{product_id}}" method="POST">
 	Product name: <input type="text" name="product_name" value="{{product_name}}">
+{{/data}}	
 	<br />Category selection:<br />
 		<select name="category_id">
 			{{#categories}}
@@ -11,4 +12,3 @@
 		</select><br />	
 	<input type="submit">
 </form>
-{{/data}}

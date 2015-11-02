@@ -35,9 +35,9 @@ exports.add = function (req, res, next) {
 		var data = {
       		product_name : input.product_name,
       		category_id : input.category_id
-  	};
+  		};
 		connection.query('insert into Products set ?', data, function(err, results) {
-  		if (err) return next(err);
+  			if (err) return next(err);
 			res.redirect('/products');
 		});
 	});
@@ -46,25 +46,31 @@ exports.add = function (req, res, next) {
 exports.get = function(req, res, next){
 	var product_id = req.params.product_id;
 	req.getConnection(function(err, connection){
-		connection.query('SELECT * FROM Products WHERE product_id = ?', [product_id], function(err,rows){
-			if(err) return next(err);
-			res.render('edit',{page_title:"Edit Customers - Node.js", data : rows[0]});
+		connection.query('SELECT * FROM Products WHERE product_id = ?', [product_id], function(err, rows){
+			connection.query('SELECT * FROM Categories', [], function(err,results){
+				if(err) return next(err);
+				res.render('edit',{
+					page_title:"Edit Customers - Node.js", 
+					data : rows[0], 
+					categories : results
+				});
+			});		
 		});
 	});
 };
 
 exports.update = function(req, res, next){
-
 	var data = JSON.parse(JSON.stringify(req.body));
-  var product_id = req.params.product_id;
-  req.getConnection(function(err, connection){
-			connection.query('UPDATE Products SET ? WHERE product_id = ?', [data, product_id], function(err, rows){
-    			if (err) next(err);
-          res.redirect('/products');
-    		});
-
+    var product_id = req.params.product_id;
+    req.getConnection(function(err, connection){
+		connection.query('UPDATE Products SET ? WHERE product_id = ?', [data, product_id], function(err, rows){
+    		if (err) next(err);
+            res.redirect('/products');
+    	});
     });
 };
+
+
 
 exports.delete = function(req, res, next){
 	var product_id = req.params.product_id;

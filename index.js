@@ -42,10 +42,10 @@ function errorHandler(err, req, res, next) {
 //setup the handlers
 app.get('/', products.home);
 app.get('/products', products.show);
-app.get('/products/edit/:product_id', products.get);
-app.post('/products/update/:product_id', products.update);
 app.get('/products/add', products.showAdd);
 app.post('/products/add', products.add);
+app.get('/products/edit/:product_id', products.get);
+app.post('/products/update/:product_id', products.update);
 app.get('/products/delete/:product_id', products.delete);
 app.get('/products/productPopularity', products.productPopularity);
 
@@ -74,6 +74,9 @@ app.get('/suppliers/delete/:supplier_id', suppliers.delete);
 app.get('/purchases', purchases.showPurchases);
 app.get('/purchases/addPurchases', purchases.showAddPurchases);
 app.post('/purchases/addPurchases', purchases.addPurchases);
+app.get('/purchases/editPurchases/:purchase_id', purchases.getPurchases);
+//app.post('/purchases/updatePurchases/:purchase_id', purchases.updatePurchases);
+app.get('/purchases/delete/:purchase_id', purchases.delete);
 
 app.use(errorHandler);
 

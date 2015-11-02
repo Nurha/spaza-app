@@ -1,7 +1,7 @@
 exports.showSales = function (req, res, next){
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
-		connection.query('SELECT  Sales.sales_id, Products.product_name, Sales.qty, DATE_FORMAT(Sales.date, "%d/%l/%Y") as date, Sales.sales_price FROM Sales INNER JOIN Products ON Sales.product_id = Products.product_id ORDER BY Sales.date', [], function(err, results){
+		connection.query('SELECT  Sales.sales_id, Products.product_name, Sales.qty, DATE_FORMAT(Sales.date, "%d/%l/%Y") as date, Sales.sales_price FROM Sales INNER JOIN Products ON Sales.product_id = Products.product_id ORDER BY Sales.date DESC', [], function(err, results){
 			
 				res.render('Sales',{
 					no_sales : results.length === 0,
@@ -43,9 +43,12 @@ exports.addSales = function(req, res, next){
 exports.getSales = function(req, res, next){
 	var sales_id = req.params.sales_id;
 	req.getConnection(function(err, connection){
-		connection.query('SELECT * FROM Sales WHERE sales_id = ?', [sales_id], function(err,rows){
+		connection.query('SELECT * FROM Sales WHERE sales_id = ?', [sales_id], function(err, rows){
 			if(err) return next(err);
-			res.render('editSales',{page_title:"Edit Customers - Node.js", data : rows[0]});
+			res.render('editSales',{
+				page_title:"Edit Customers - Node.js",
+				data : rows[0]
+			});
 		});
 	});
 };
