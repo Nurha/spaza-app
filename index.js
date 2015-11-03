@@ -53,7 +53,7 @@ app.get('/sales', sales.showSales);
 app.get('/sales/add', sales.showAddSales);
 app.post('/sales/add', sales.addSales);
 app.get('/sales/editSales/:sales_id', sales.getSales);
-app.post('/sales/updateSales/ :sales_id', sales.updateSales);
+app.post('/sales/updateSales/:sales_id', sales.updateSales);
 app.get('/sales/delete/:sales_id', sales.delete);
 
 app.get('/categories', categories.showCategories);

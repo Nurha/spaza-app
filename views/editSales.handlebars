@@ -1,16 +1,64 @@
-<h1>Sales record update</h1>
+<!-- <h1>Sales record update</h1>
 {{#data}}
-<br /><form action="/sales/editSales/{{sales_id}}" method="POST">
+<br /><form action="/sales/updateSales/{{sales_id}}" method="POST">
 		  Date :<br /> <input type="date" name="date" value="{{date}}"><br />
 	<br />Quantity Sold :<br /> <input type="number" name="qty" value="{{qty}}"><br />
 	<br />Sales Price :<br /><input type="number" name="sales_price" value="{{sales_price}}"><br />
+    {{/data}}	
 	<br />Product selection:<br />
 		<select name="product_id">
 			{{#products}}
-			<option value="{{product_id}}">{{product_name}}</option>
+		<option value="{{product_id}}">{{product_name}}</option>
 			{{/products}}
 		</select><br />
 	
 	<br /><input type="submit"><br />
-</form>
+</form> -->
+
+
+
+
+<h1>Sales record update</h1>
+ {{#data}}
+
+<form action="/sales/updateSales/{{sales_id}}" method = "POST" class="form-horizontal" >
+
+	<div class="form-group">
+		<label for="date" class="control-label col-xs-2">Date</label>
+			<div class="col-xs-5">	 
+     				<input type="date" class="form-control" name="date" placeholder="yyyy-mm-dd" required/>
+			</div>
+	</div> 
+
+	<div class="form-group">
+		<label for="number" class="control-label col-xs-2">Qauntity sold</label>	 
+		 <div class="col-xs-5">
+			<input type="number" name="qty" class="form-control" placeholder="Enter Sales Amount" required>
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		<label for="number" class="control-label col-xs-2">Sales price</label>
+		<div class="col-xs-5">	 
+     			<input type="number" step="any" name="sales_price" placeholder="Enter Sales Price" required>
+		</div>
+	</div>
+
 {{/data}}
+    <div class="form-group">
+		<label class="control-label col-xs-2">Product selection</label>
+		<div class="col-xs-5">	 
+     			<select name="product_id">
+    				{{#products}}
+      					<option value ="{{product_id}}">{{product_name}}</option>
+    				{{/products}}
+  				</select>
+		</div>
+
+	</div>
+
+
+ 	<input type="submit" class="btn btn-primary" id="enter" onclick="myFunction()">  
+
+</form>

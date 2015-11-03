@@ -50,7 +50,7 @@ exports.get = function(req, res, next){
 			connection.query('SELECT * FROM Categories', [], function(err,results){
 				if(err) return next(err);
 				res.render('edit',{
-					page_title:"Edit Customers - Node.js", 
+					page_title:"Edit Products - Node.js", 
 					data : rows[0], 
 					categories : results
 				});
