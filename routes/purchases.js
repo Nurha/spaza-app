@@ -50,8 +50,17 @@ exports.getPurchases = function(req, res, next){
 	var purchase_id = req.params.purchase_id;
 	req.getConnection(function(err, connection){
 		connection.query('SELECT * FROM Purchases WHERE purchase_id = ?', [purchase_id], function(err,rows){
-			if(err) return next(err);
-			res.render('editPurchases',{page_title:"Edit Customers - Node.js", data : rows[0]});
+			connection.query('SELECT * FROM Products', [], function(err, results){
+				connection.query('SELECT * FROM Suppliers', [], function(err, result){
+					if(err) return next(err);
+					res.render('editPurchases',{
+						page_title:"Edit Customers - Node.js",
+						data : rows[0],
+						products : results,
+						suppliers : result
+					});
+				});
+			});
 		});
 	});
 };

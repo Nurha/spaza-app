@@ -1,9 +1,11 @@
 <h1>Edit Purchases</h1>
 
-<br /><form action="/sales/editPurchases/{{purchase_id}}" method="POST">
+{{#data}}
+<br /><form action="/purchases/editPurchases/{{purchase_id}}" method="POST">
 		  Date :<br /> <input type="date" name="date" value="{{date}}"><br />
 	<br />Quantity :<br /> <input type="number" name="qty" value="{{qty}}"><br />
 	<br />Cost Price :<br /><input type="number" name="cost_price" value="{{cost_price}}"><br />
+{{/data}}
 	<br />Product selection:<br />
 		<select name="product_id">
 			{{#products}}

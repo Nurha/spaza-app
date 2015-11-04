@@ -75,7 +75,7 @@ app.get('/purchases', purchases.showPurchases);
 app.get('/purchases/addPurchases', purchases.showAddPurchases);
 app.post('/purchases/addPurchases', purchases.addPurchases);
 app.get('/purchases/editPurchases/:purchase_id', purchases.getPurchases);
-//app.post('/purchases/updatePurchases/:purchase_id', purchases.updatePurchases);
+app.post('/purchases/updatePurchases/:purchase_id', purchases.updatePurchases);
 app.get('/purchases/delete/:purchase_id', purchases.delete);
 
 app.use(errorHandler);
