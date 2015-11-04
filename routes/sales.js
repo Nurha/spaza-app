@@ -1,7 +1,7 @@
 exports.showSales = function (req, res, next){
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
-		connection.query('SELECT  Sales.sales_id, Products.product_name, Sales.qty, Sales.date, Sales.sales_price FROM Sales INNER JOIN Products ON Sales.product_id = Products.product_id ORDER BY Sales.date DESC', [], function(err, results){
+		connection.query('SELECT  Sales.sales_id, Products.product_name, Sales.qty, DATE_FORMAT(Sales.date, "%d/%l/%Y") as date, Sales.sales_price FROM Sales INNER JOIN Products ON Sales.product_id = Products.product_id ORDER BY Sales.date DESC', [], function(err, results){
 			
 				res.render('Sales',{
 					no_sales : results.length === 0,
@@ -18,7 +18,9 @@ exports.showAddSales = function(req, res){
 		if (err) return next(err);
 		connection.query('SELECT * FROM Products', [], function(err, products){
 			if (err) return next(err);
-			res.render('addSales',{ products : products});
+			res.render('addSales',{ 
+				products : products
+			});
 		});
 	});
 };
