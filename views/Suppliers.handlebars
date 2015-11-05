@@ -1,19 +1,40 @@
 <h1>Suppliers List</h1>
 
-<a href ="/suppliers/addSuppliers">Add a new supplier</a>
+<div class = "container-fluid">
+	<div class = "row">
+		<div class = "col-xs-12">
 
-<table class = "table" id = "suppliers">
-	<tr>
-		<th>Supplier id</th>
-		<th>Supplier name</th>
-	</tr>
-	{{#suppliers}}
-		<tr>
-			<td>{{supplier_id}}</td>
-			<td>{{supplier_name}}</td>
+			<!-- <a href ="/suppliers/addSuppliers">Add a new supplier</a> -->
 
-			<td><a href="/suppliers/editSuppliers/{{supplier_id}}">Edit</a></td>
-			<td><a href="/suppliers/delete/{{supplier_id}}">Delete</a></td>
-		</tr>
-	{{/suppliers}}	
-</table>
+			<a href="/suppliers/addSuppliers"  class= "btn btn-primary">
+			<span class= "glyphicon glyphicon-plus"></span>Add a new suppler</a>
+
+			<div class = "table-responsive">
+
+				<table class = "table" id = "suppliers">
+					<thead>
+						<tr>
+							<th>Supplier id</th>
+							<th>Supplier name</th>
+						</tr>
+					</thead>
+						{{#suppliers}}
+						<tr>
+							<td>{{supplier_id}}</td>
+							<td>{{supplier_name}}</td>
+
+							<!-- <td><a href="/suppliers/editSuppliers/{{supplier_id}}">Edit</a></td>
+							<td><a href="/suppliers/delete/{{supplier_id}}">Delete</a></td> -->
+
+							<td><a href="/suppliers/editSuppliers/{{supplier_id}}" class="btn btn-primary">
+							<span class="glyphicon glyphicon-edit"></span>Edit</a></td>
+							
+							<td><a href="/suppliers/delete/{{supplier_id}}" class= "btn btn-primary">
+							<span class="glyphicon glyphicon-trash"></span>Delete</a></td>
+						</tr>
+					{{/suppliers}}	
+				</table>
+			</div>	
+		</div>
+	</div>
+</div>	

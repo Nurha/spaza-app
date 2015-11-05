@@ -1,19 +1,32 @@
 <h1>Category List</h1>
 
-<a href ="/categories/addCategories">Add a category</a>
+<div class = "container-fluid">
+	<div class = "row">
+		<div class = "col-xs-12">
 
-<table class = "table" id = "categoryList">
-	<tr>
-		<th>Category id</th>
-		<th>Category name</th>
-	</tr>
-	{{#categories}}
-		<tr>
-			<td>{{category_id}}</td>
-			<td>{{category_name}}</td>
-		
-		<td><a href="/categories/editCategories/{{category_id}}">Edit</a></td>
-		<td><a href="/categories/delete/{{category_id}}">Delete</a></td>
-		</tr>
-	{{/categories}}
-</table>
+			<!-- <a href ="/categories/addCategories">Add a category</a> -->
+			<a href="/categories/addCategories"  class= "btn btn-primary">
+			<span class= "glyphicon glyphicon-plus"></span>Add a category</a>
+
+			<div class = "table-responsive">
+				<table class = "table" id = "categoryList">
+					<thead>
+						<tr>
+							<th>Category id</th>
+							<th>Category name</th>
+						</tr>
+					</thead>	
+					{{#categories}}
+						<tr>
+							<td>{{category_id}}</td>
+							<td>{{category_name}}</td>
+						
+							<td><a href="/categories/editCategories/{{category_id}}">Edit</a></td>
+							<td><a href="/categories/delete/{{category_id}}">Delete</a></td>
+						</tr>
+					{{/categories}}
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

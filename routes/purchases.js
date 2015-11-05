@@ -57,7 +57,7 @@ exports.getPurchases = function(req, res, next){
 						page_title:"Edit Customers - Node.js",
 						data : rows[0],
 						products : results,
-						suppliers : result
+						suppliers : result,
 					});
 				});
 			});

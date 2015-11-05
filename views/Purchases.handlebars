@@ -1,29 +1,46 @@
 <h1>Purchases List</h1>
 
-<a href ="/purchases/addPurchases">Add a purchase</a>
+<div class = "container-fluid">
+	<div class = "row">
+		<div class = "col-xs-12">
 
-<table class = "table" id = "purchases">
-	<tr>
-		<th>Purchase id</th>
-		<th>Supplier name</th>
-		<th>Product name</th>
-		<th>Purchase price</th>
-		<th>Quantity</th>
-		<th>Date</th>
-	</tr>
-	{{#purchases}}
-		<tr>
-			<td>{{purchase_id}}</td>
-			<td>{{supplier_name}}</td>
-			<td>{{product_name}}</td>
-			<td>{{cost_price}}</td>
-			<td>{{qty}}</td>
-			<td>{{date}}</td>
+			<!-- <a href ="/purchases/addPurchases">Add a purchase</a> -->
+			<a href="/purchases/addPurchases"  class= "btn btn-primary">
+			<span class= "glyphicon glyphicon-plus"></span>Add a purchase</a>
 
-			<td><a href="/purchases/editPurchases/{{purchase_id}}">Edit</a></td>
-			<td><a href="/purchases/delete/{{purchase_id}}">Delete</a></td>
-		</tr>
-	{{/purchases}}	
-</table>
+			<div class = "table-responsive">
+				<table class = "table" id = "purchases">
+					<thead>
+						<tr>
+							<th>Purchase id</th>
+							<th>Supplier name</th>
+							<th>Product name</th>
+							<th>Purchase price</th>
+							<th>Quantity</th>
+							<th>Date</th>
+						</tr>
+					</thead>
+					{{#purchases}}
+						<tr>
+							<td>{{purchase_id}}</td>
+							<td>{{supplier_name}}</td>
+							<td>{{product_name}}</td>
+							<td>{{cost_price}}</td>
+							<td>{{qty}}</td>
+							<td>{{date}}</td>
+
+							<td><a href="/purchases/editPurchases/{{purchase_id}}" class="btn btn-primary">
+							<span class="glyphicon glyphicon-edit"></span>Edit</a></td>
+							
+							<td><a href="/purchases/delete/{{purchase_id}}" class= "btn btn-primary">
+							<span class="glyphicon glyphicon-trash"></span>Delete</a></td>
+						</tr>
+					{{/purchases}}	
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+							
 
 
