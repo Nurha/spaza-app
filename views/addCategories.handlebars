@@ -1,4 +1,4 @@
-<h1>Add a category</h1>
+<!-- <h1>Add a category</h1>
 
 	<form action = "/categories/addCategories" method = "POST">
 		
@@ -8,9 +8,18 @@
 		<br><input type="submit"></br>
 		
 	</form>
+ -->
+<h1>Add a new category</h1>
 
-	
+<form action="/categories/addCategories" method="POST" class="form-horizontal" >
 
+	<div class="form-group">
+		<label for="text" class="control-label col-xs-2">Enter a category name</label>
+		<div class="col-xs-5">	 
+     			<input type="text" step="any" name="category_name" value="{{category_name}}" placeholder="Enter a category" required>
+		</div>
+	</div>
 
-
+ 	<input type="submit" class="btn btn-primary" id="enter" onclick="myFunction()">  
+</form>	
 	

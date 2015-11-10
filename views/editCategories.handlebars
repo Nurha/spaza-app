@@ -1,4 +1,4 @@
-<h1>Edit Categories</h1>
+<!-- <h1>Edit Categories</h1>
 
 {{#data}}
 <form action="/categories/updateCategories/{{category_id}}" method="POST">
@@ -7,7 +7,26 @@
 	
 	<input type="submit">
 </form>
+{{/data}} -->
+
+<h1>Edit Categories</h1>
+
+ {{#data}}
+<form action="/categories/updateCategories/{{category_id}}" method = "POST" class="form-horizontal" >
+
+	<div class="form-group">
+		<label for="number" class="control-label col-xs-2">Category Name</label>
+		<div class="col-xs-5">	 
+     			<input type="text" step="any" name="category_name" placeholder="Enter category name" required>
+		</div>
+	</div>
 {{/data}}
+    
+ 	<input type="submit" class="btn btn-primary" id="enter" onclick="myFunction()">  
+
+</form>
+    
+
 
 
 
