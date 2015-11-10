@@ -1,4 +1,4 @@
-<h1>Edit Products</h1>
+<!-- <h1>Edit Products</h1>
 
 {{#data}}
 <form action="/products/update/{{product_id}}" method="POST">
@@ -11,4 +11,38 @@
 			{{/categories}}
 		</select><br />	
 	<input type="submit">
+</form> -->
+
+<h1>Edit products</h1>
+
+ {{#data}}
+<form action="/products/update/{{product_id}}" method = "POST" class="form-horizontal" >
+
+	<div class="form-group">
+		<label for="number" class="control-label col-xs-2">Product Name</label>
+		<div class="col-xs-5">	 
+     			<input type="text" step="any" name="product_name" placeholder="Enter product name" required>
+		</div>
+	</div>
+{{/data}}
+    
+    <div class="form-group">
+		<label class="control-label col-xs-2">Category selection</label>
+		<div class="col-xs-5">	 
+     			<select name="category_id">
+    				{{#categories}}
+      					<option value ="{{category_id}}">{{category_name}}</option>
+    				{{/categories}}
+  				</select>
+		</div>
+	</div>
+
+
+
+ 	<input type="submit" class="btn btn-primary" id="enter" onclick="myFunction()">  
+
 </form>
+	
+
+	
+

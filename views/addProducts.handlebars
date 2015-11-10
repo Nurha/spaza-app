@@ -1,4 +1,4 @@
-<h1>Add a new product</h1>
+<!-- <h1>Add a new product</h1>
 
 <br /><form action="/products/add" method="POST">
 	Enter product name: <br /> <input type="text" name="product_name" value="{{product_name}}"><br />
@@ -10,6 +10,31 @@
 		</select><br />
 	
 <br />	<input type="submit">
+</form> -->
+
+<h1>Add a new product</h1>
+
+<form action="/products/add" method="POST" class="form-horizontal" >
+
+	<div class="form-group">
+		<label for="text" class="control-label col-xs-2">Products</label>
+		<div class="col-xs-5">	 
+     			<input type="text" step="any" name="product_name" value="{{product_name}}" placeholder="Enter a product" required>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="control-label col-xs-2">Category selection</label>
+		<div class="col-xs-5">	 
+     			<select name="category_id">
+    				{{#each categories}}
+      					<option value = "{{category_id}}">{{category_name}}</option>
+    				{{/each}}
+  			</select>
+		</div>
+	</div>
+
+ 	<input type="submit" class="btn btn-primary" id="enter" onclick="myFunction()">  
 </form>
 
  

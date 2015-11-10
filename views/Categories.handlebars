@@ -21,8 +21,14 @@
 							<td>{{category_id}}</td>
 							<td>{{category_name}}</td>
 						
-							<td><a href="/categories/editCategories/{{category_id}}">Edit</a></td>
-							<td><a href="/categories/delete/{{category_id}}">Delete</a></td>
+							<!-- <td><a href="/categories/editCategories/{{category_id}}">Edit</a></td>
+							<td><a href="/categories/delete/{{category_id}}">Delete</a></td> -->
+
+							<td><a href="/categories/editCategories/{{category_id}}" class="btn btn-primary">
+							<span class="glyphicon glyphicon-edit"></span>Edit</a></td>
+							
+							<td><a href="/categories/delete/{{category_id}}" class= "btn btn-primary">
+							<span class="glyphicon glyphicon-trash"></span>Delete</a></td>
 						</tr>
 					{{/categories}}
 				</table>
