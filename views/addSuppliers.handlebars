@@ -1,10 +1,24 @@
-<h1>Add a new supplier</h1>
+<!-- <h1>Add a new supplier</h1>
 
 <form action = "/suppliers/addSuppliers" method = "POST">
 	Enter a supplier name:
 		<br><input type="text" name="supplier_name" value="{{supplier_name}}"></br>
 		
 		<br><input type="submit"></br>
+</form> -->
 		
+<h1>Add a new Supplier</h1>
+
+<form action="/suppliers/addSuppliers" method="POST" class="form-horizontal" >
+
+	<div class="form-group">
+		<label for="text" class="control-label col-xs-2">Enter a supplier name</label>
+		<div class="col-xs-5">	 
+     			<input type="text" step="any" name="supplier_name" value="{{supplier_name}}" placeholder="Enter a supplier" required>
+		</div>
+	</div>
+
+ 	<input type="submit" class="btn btn-primary" id="enter" onclick="myFunction()">  
+</form>	
 	
-</form>
+	

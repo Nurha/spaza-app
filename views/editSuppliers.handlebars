@@ -1,4 +1,4 @@
-<h1>Edit supplier name</h1>
+<!-- <h1>Edit supplier name</h1>
 
 {{#data}}
 <form action ="/suppliers/updateSuppliers/{{supplier_id}}" method ="POST">
@@ -8,4 +8,21 @@
 	<input type = "submit">
 	
 </form>
+{{/data}} -->
+
+<h1>Edit Supplier Name</h1>
+
+ {{#data}}
+<form action="/suppliers/updateSuppliers/{{supplier_id}}" method = "POST" class="form-horizontal" >
+
+	<div class="form-group">
+		<label for="number" class="control-label col-xs-2">Category Name</label>
+		<div class="col-xs-5">	 
+     			<input type="text" step="any" name="supplier_name" placeholder="Enter supplier name" required>
+		</div>
+	</div>
 {{/data}}
+    
+ 	<input type="submit" class="btn btn-primary" id="enter" onclick="myFunction()">  
+
+</form>
