@@ -5,7 +5,7 @@
 		<div class = "col-xs-12">
 			
 			<a href="/sales/add"  class= "btn btn-primary">
-			<span class= "glyphicon glyphicon-plus"></span>Add sale</a>
+			<span class= "glyphicon glyphicon-plus"></span> Add sale</a>
 
 			<div class = "table-responsive">
 				<table class="table" id = "salesRecords">
@@ -23,15 +23,15 @@
 							
 							<td>{{sales_id}}</td>
 							<td>{{product_name}}</td>
-							<td>{{sales_price}}</td>
+							<td>R{{sales_price}}</td>
 							<td>{{qty}}</td>
 							<td>{{date}}</td>
 
 							<td><a href="/sales/editSales/{{sales_id}}" class="btn btn-primary">
-							<span class="glyphicon glyphicon-edit"></span>Edit</a></td>
+							<span class="glyphicon glyphicon-edit"></span> Edit</a></td>
 							
 							<td><a href="/sales/delete/{{sales_id}}" class= "btn btn-primary">
-							<span class="glyphicon glyphicon-trash"></span>Delete</a></td>
+							<span class="glyphicon glyphicon-trash"></span> Delete</a></td>
 
 						</tr>
 					{{/sales}}

@@ -1,27 +1,3 @@
-<!-- <h1>Edit Purchases</h1>
-
-{{#data}}
-<br /><form action="/purchases/updatePurchases/{{purchase_id}}" method="POST">
-		  Date :<br /> <input type="date" name="date" value="{{date}}"><br />
-	<br />Quantity :<br /> <input type="number" name="qty" value="{{qty}}"><br />
-	<br />Cost Price :<br /><input type="number" name="cost_price" value="{{cost_price}}"><br />
-{{/data}}
-	<br />Product selection:<br />
-		<select name="product_id">
-			{{#products}}
-			<option value="{{product_id}}">{{product_name}}</option>
-			{{/products}}
-		</select><br />
-		<br />Supplier selection:<br />
-		<select name="supplier_id">
-			{{#suppliers}}
-			<option value="{{supplier_id}}">{{supplier_name}}</option>
-			{{/suppliers}}
-		</select><br />
-	
-	<br /><input type="submit"><br />
-</form> -->
-
 <h1>Edit purchases</h1>
  {{#data}}
 
@@ -37,14 +13,14 @@
 	<div class="form-group">
 		<label for="number" class="control-label col-xs-2">Qauntity</label>	 
 		 <div class="col-xs-5">
-			<input type="number" name="qty" class="form-control" placeholder="Enter Amount" required>
+			<input type="number" name="qty" class="form-control"  value="{{qty}}">
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="number" class="control-label col-xs-2">Cost price</label>
 		<div class="col-xs-5">	 
-     			<input type="number" step="any" name="cost_price" placeholder="Enter cost Price" required>
+     			<input type="number" step="any" name="cost_price" value="{{cost_price}}">
 		</div>
 	</div>
 

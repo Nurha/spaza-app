@@ -16,8 +16,3 @@ INSERT INTO Products(product_name, category_id) VALUES('Mixed Sweets 5s', 1);
 INSERT INTO Products(product_name, category_id) VALUES('Heart Chocolates', 1);
 INSERT INTO Products(product_name, category_id) VALUES('Rose (plastic)', 5);
 INSERT INTO Products(product_name, category_id) VALUES('Valentine Cards', 5);
-
-
-
-
-

@@ -1,18 +1,3 @@
-<!-- <h1>Edit Products</h1>
-
-{{#data}}
-<form action="/products/update/{{product_id}}" method="POST">
-	Product name: <input type="text" name="product_name" value="{{product_name}}">
-{{/data}}	
-	<br />Category selection:<br />
-		<select name="category_id">
-			{{#categories}}
-			<option value="{{category_id}}">{{category_name}}</option>
-			{{/categories}}
-		</select><br />	
-	<input type="submit">
-</form> -->
-
 <h1>Edit products</h1>
 
  {{#data}}
@@ -21,28 +6,23 @@
 	<div class="form-group">
 		<label for="number" class="control-label col-xs-2">Product Name</label>
 		<div class="col-xs-5">	 
-     			<input type="text" step="any" name="product_name" placeholder="Enter product name" required>
+     		<input type="text" step="any" name="product_name" value="{{product_name}}">
 		</div>
 	</div>
 {{/data}}
-    
-    <div class="form-group">
+
+<div class="form-group">
 		<label class="control-label col-xs-2">Category selection</label>
 		<div class="col-xs-5">	 
-     			<select name="category_id">
-    				{{#categories}}
-      					<option value ="{{category_id}}">{{category_name}}</option>
-    				{{/categories}}
-  				</select>
+     		<select name="category_id">
+    			{{#categories}}
+      				<option value ="{{category_id}}">{{category_name}}</option>
+    			{{/categories}}
+  			</select>
 		</div>
 	</div>
-
-
-
+    
+	
  	<input type="submit" class="btn btn-primary" id="enter" onclick="myFunction()">  
 
 </form>
-	
-
-	
-

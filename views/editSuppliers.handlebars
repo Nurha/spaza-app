@@ -16,9 +16,9 @@
 <form action="/suppliers/updateSuppliers/{{supplier_id}}" method = "POST" class="form-horizontal" >
 
 	<div class="form-group">
-		<label for="number" class="control-label col-xs-2">Category Name</label>
+		<label for="number" class="control-label col-xs-2">Supplier Name</label>
 		<div class="col-xs-5">	 
-     			<input type="text" step="any" name="supplier_name" placeholder="Enter supplier name" required>
+     			<input type="text" step="any" name="supplier_name" value="{{supplier_name}}">
 		</div>
 	</div>
 {{/data}}
