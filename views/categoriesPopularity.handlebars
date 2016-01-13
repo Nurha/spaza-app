@@ -1,14 +1,25 @@
 <h1>Category Popularity List</h1>
 
-<table class = "table" id = "categoriesPopularity">
-<tr>
-	<th>Category name</th>
-	<th>Quantity</th>
-</tr>
-{{#categoriesPopularity}}
-	<tr>
-		<th>{{category_name}}</th>
-		<th>{{qty}}</th>
-	</tr>
-{{/categoriesPopularity}}
-</table>
+<div class = "container fluid">
+	<div class = "row">
+		<div class = "col-xs-12">
+			<div class = "table-responsive">
+
+				<table class = "table" id = "categoriesPopularity">
+				<thead>
+					<tr>
+						<th>Category name</th>
+						<th>Quantity</th>
+					</tr>
+				</thead>
+				{{#categoriesPopularity}}
+					<tr>
+						<th>{{category_name}}</th>
+						<th>{{qty}}</th>
+					</tr>
+				{{/categoriesPopularity}}
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
