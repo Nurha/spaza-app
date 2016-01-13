@@ -11,6 +11,12 @@
               <th>Earnings</th>
             </tr>
           </thead>
+          {{#productEarnings}}
+            <tr>
+              <td>{{product_name}}</td>
+              <td>R{{earnings}}</td>
+            </tr>
+        {{/productEarnings}}
         </table>
       </div>
     </div>
