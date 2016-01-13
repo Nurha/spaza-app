@@ -48,6 +48,7 @@ app.get('/products/edit/:product_id', products.get);
 app.post('/products/update/:product_id', products.update);
 app.get('/products/delete/:product_id', products.delete);
 app.get('/products/productPopularity', products.productPopularity);
+app.get('/products/productEarnings', products.productEarnings);
 
 app.get('/sales', sales.showSales);
 app.get('/sales/add', sales.showAddSales);

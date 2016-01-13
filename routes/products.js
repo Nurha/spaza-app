@@ -2,21 +2,21 @@ exports.show = function (req, res, next) {
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
 		connection.query('SELECT Products.product_id, Products.product_name, Categories.category_name FROM Products INNER JOIN Categories ON Categories.category_id = Products.category_id ORDER BY product_id', [], function(err, results) {
-        	
+
         		if (err) return next(err);
     			res.render( 'Products', {
 					no_products : results.length === 0,
 					products : results
-					
+
     			});
-      		
+
 		});
 	});
 };
 
 exports.home = function(req, res){
 	res.render('home')
-} 
+}
 
 exports.showAdd = function(req, res){
 	req.getConnection(function(err, connection){
@@ -50,11 +50,11 @@ exports.get = function(req, res, next){
 			connection.query('SELECT * FROM Categories', [], function(err,results){
 				if(err) return next(err);
 				res.render('edit',{
-					page_title:"Edit Products - Node.js", 
-					data : rows[0], 
+					page_title:"Edit Products - Node.js",
+					data : rows[0],
 					categories : results
 				});
-			});		
+			});
 		});
 	});
 };
@@ -89,6 +89,18 @@ exports.productPopularity = function(req, res, next){
 			if(err) return next(err);
 			res.render('productPopularity', {
 				productPopularity: results
+			});
+		});
+	});
+};
+
+exports.productEarnings = function(req, res, next){
+	var product_id = req.params.product_id;
+	req.getConnection(function(err, connection){
+		connection.query('SELECT Products.product_name, SUM(Sales.qty * Sales.sales_price) AS earnings FROM Sales INNER JOIN Products ON Sales.product_id = Products.product_id GROUP BY Products.product_name ORDER BY earnings DESC',[], function(err, result){
+			if(err) return(err);
+			res.render('productEarnings',{
+					productEarnings: result
 			});
 		});
 	});
