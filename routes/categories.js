@@ -79,3 +79,14 @@ exports.categoriesPopularity = function(req, res, next){
 		});
 	});
 };
+exports.categoryEarnings = function(req, res, next){
+	var category_id = req.params.category_id;
+	req.getConnection(function(err, connection){
+		connection.query('',[] , function(err, result){
+			if(err) return next(err);
+			res.render('categoryEarnings',{
+				categoryEarnings: result
+			});
+		});
+	});
+};
