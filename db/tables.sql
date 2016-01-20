@@ -43,7 +43,7 @@ CREATE TABLE  `Sales` (
     `sales_id` int NOT NULL auto_increment,
     `product_id` int(42),
     `date` date NOT NULL,
-    `sales_price` int(42),
+    `sales_price` decimal(42,2),
     `qty` int(42),
     FOREIGN KEY (product_id) REFERENCES Products(product_id),
     PRIMARY KEY(sales_id)
