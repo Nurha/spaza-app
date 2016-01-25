@@ -1,0 +1,24 @@
+<h1>Profits per product</h1>
+
+<div class = "container fluid">
+  <div class = "row">
+    <div class = "col-xs-12">
+      <div class = "table-responsive">
+        <table class = "table" id = "productProfits">
+          <thead>
+            <tr>
+              <th>Product Name</th>
+              <th>Profits</th>
+            </tr>
+          </thead>
+          {{#productProfits}}
+            <tr>
+              <td>{{product_name}}</td>
+              <td>R{{profits}}</td>
+            </tr>
+        {{/productProfits}}
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
