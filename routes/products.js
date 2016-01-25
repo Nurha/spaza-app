@@ -105,3 +105,15 @@ exports.productEarnings = function(req, res, next){
 		});
 	});
 };
+
+exports.productProfits = function(req, res, next){
+	var product_id = req.params.prroduct_id;
+	req.getConnection(function(err, connection){
+		connection.query('SELECT * FROM Products', [], function(err, result){
+			if(err) return(err);
+			res.render('productProfits',{
+				productProfits : result
+			});
+		});
+	});
+};
