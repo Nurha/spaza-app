@@ -22,3 +22,13 @@ INNER JOIN Categories ON Categories.category_id = Products.category_id
 GROUP BY Categories.category_name
 ORDER BY earnings
 DESC;
+
+--product names and profits
+SELECT Products.product_name,
+SUM(Sales.qty * Sales.sales_price) - SUM(Purchases.qty * Purchases.cost_price)
+AS profits
+FROM Sales, Purchases
+INNER JOIN Products ON Sales.product_id = Products.product_id
+GROUP BY Products.product_name
+ORDER BY profits
+DESC;

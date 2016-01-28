@@ -109,7 +109,7 @@ exports.productEarnings = function(req, res, next){
 exports.productProfits = function(req, res, next){
 	var product_id = req.params.prroduct_id;
 	req.getConnection(function(err, connection){
-		connection.query('SELECT * FROM Products', [], function(err, result){
+		connection.query('SELECT Products.product_name, SUM(Sales.qty * Sales.sales_price) - SUM(Purchases.qty * Purchases.cost_price) AS profits FROM Sales INNER JOIN Products ON  Sales.product_id = Products.product_id GROUP BY Products.product_name ORDER BY profits DESC', [], function(err, result){
 			if(err) return(err);
 			res.render('productProfits',{
 				productProfits : result
