@@ -24,11 +24,33 @@ ORDER BY earnings
 DESC;
 
 --product names and profits
-SELECT Products.product_name,
-SUM(Sales.qty * Sales.sales_price) - SUM(Purchases.qty * Purchases.cost_price)
+SELECT product_name, product_id FROM Products
+(SELECT SUM(Sales.qty * Sales.sales_price)AS earnings FROM Sales WHERE Sales.product_id = Products.product_id) -
+(SELECT SUM(Purchases.qty * Purchases.cost_price) AS cost FROM Purchases WHERE Purchases.product_id = Products.product_id)
 AS profits
-FROM Sales, Purchases
-INNER JOIN Products ON Sales.product_id = Products.product_id
 GROUP BY Products.product_name
 ORDER BY profits
+DESC;
+
+SELECT product_name, SUM(Purchases.qty * Purchases.cost_price)
+as purchased_at, SUM(Sales.qty * Sales.sales_price)
+as made,
+SUM((Sales.qty * Sales.sales_price)-(Purchases.qty * Purchases.cost_price))
+AS profit
+from Purchases
+INNER JOIN Products
+ON Purchases.product_id = Products.product_id
+INNER JOIN Sales
+ON Sales.product_id = Products.product_id
+GROUP BY Name
+ORDER BY profit
+
+SELECT product_name,
+(sales_price-cost_price)
+AS Profit
+FROM Products, Sales, Purchases
+WHERE Products.product_id = Sales.product_id
+And Sales.product_id = Purchases.product_id
+GROUP BY product_name
+ORDER BY Profit
 DESC;
