@@ -90,3 +90,13 @@ exports.categoryEarnings = function(req, res, next){
 		});
 	});
 };
+exports.categoryProfits = function(req, res, next){
+	req.getConnection(function(err,connection){
+		connection.query('', [], function(err, result){
+			if(err) return next(err);
+			res.render('categoryProfits',{
+				categoryProfits : result
+			});
+		});
+	});
+};
