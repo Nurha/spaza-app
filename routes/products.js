@@ -85,7 +85,7 @@ exports.delete = function(req, res, next){
 exports.productPopularity = function(req, res, next){
 	var product_id = req.params.product_id;
 	req.getConnection(function(err, connection){
-		connection.query( 'SELECT Products.product_name, SUM(Sales.qty) AS qty FROM Sales INNER JOIN Products ON Sales.product_id = Products.product_id GROUP BY Products.product_name ORDER BY qty DESC', [], function(err, results) {
+		connection.query( 'SELECT product_name, supplier_name, Sum(Sales.qty) AS qty FROM Products, Sales, Purchases, Suppliers, WHERE Products.product_id = Sales.product_id AND Products.product_id = Purchases.product_id AND Purchases.supplier_id = Suppliers.supplier_id GROUP BY Products.product_name ORDER BY qty DESC', [], function(err, results) {
 			if(err) return next(err);
 			res.render('productPopularity', {
 				productPopularity: results

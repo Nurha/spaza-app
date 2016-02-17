@@ -51,7 +51,7 @@ AS Profit
 FROM Products, Sales, Purchases, Suppliers
 WHERE Products.product_id = Sales.product_id
 And Sales.product_id = Purchases.product_id
-AND Purchases.supplier_id = Supplier.supplier_id
+AND Purchases.supplier_id = Suppliers.supplier_id
 GROUP BY product_name
 ORDER BY Profit
 DESC;
@@ -67,4 +67,27 @@ AND Purchases.supplier_id = Suppliers.supplier_id
 AND Products.category_id = Categories.category_id
 GROUP BY category_name
 ORDER BY profit
+DESC;
+
+-- most popular product
+SELECT Products.product_name,
+SUM(Sales.qty)
+AS qty
+FROM Sales
+INNER JOIN Products
+ON Sales.product_id = Products.product_id
+GROUP BY Products.product_name
+ORDER BY qty
+DESC;
+
+SELECT product_name, supplier_name,
+Sum(Sales.qty)
+AS qty
+FROM Products, Sales, Purchases, Suppliers, Categories
+WHERE Products.product_id = Sales.product_id
+AND Products.product_id = Purchases.product_id
+AND Purchases.supplier_id = Suppliers.supplier_id
+AND Products.category_id = Categories.category_id
+GROUP BY Products.product_name
+ORDER BY qty
 DESC;
