@@ -66,6 +66,7 @@ app.post('/categories/updateCategories/:category_id', categories.updateCategorie
 app.get('/categories/delete/:category_id', categories.delete);
 app.get('/categories/categoriesPopularity', categories.categoriesPopularity);
 app.get('/categories/categoryEarnings', categories.categoryEarnings);
+app.get('/categories/categoryProfits', categories.categoryProfits);
 
 app.get('/suppliers', suppliers.showSuppliers);
 app.get('/suppliers/addSuppliers', suppliers.showAddSuppliers);
@@ -88,5 +89,5 @@ var portNumber = process.env.CRUD_PORT_NR || 3002;
 
 //start everything up
 app.listen(portNumber, function () {
-    console.log('Create, Read, Update, and Delete (CRUD) example server listening on:', portNumber);
+    console.log('listening on:', portNumber);
 });

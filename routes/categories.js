@@ -79,6 +79,7 @@ exports.categoriesPopularity = function(req, res, next){
 		});
 	});
 };
+
 exports.categoryEarnings = function(req, res, next){
 	var category_id = req.params.category_id;
 	req.getConnection(function(err, connection){
@@ -90,9 +91,10 @@ exports.categoryEarnings = function(req, res, next){
 		});
 	});
 };
+
 exports.categoryProfits = function(req, res, next){
 	req.getConnection(function(err,connection){
-		connection.query('', [], function(err, result){
+		connection.query('SELECT category_name, supplier_name, SUM(sales_price - cost_price) AS profit FROM Products, Sales, Purchases, Suppliers, Categories	WHERE Products.product_id = Sales.product_id AND Products.product_id = Purchases.product_id AND Purchases.supplier_id = Suppliers.supplier_id AND Products.category_id = Categories.category_id GROUP BY category_name ORDER BY profit DESC;', [], function(err, result){
 			if(err) return next(err);
 			res.render('categoryProfits',{
 				categoryProfits : result
