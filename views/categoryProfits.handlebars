@@ -8,13 +8,15 @@
           <thead>
             <tr>
               <th>Category Name</th>
+              <th>Supplier Name</th>
               <th>Profits</th>
             </tr>
           </thead>
           {{#categoryProfits}}
             <tr>
               <td>{{category_name}}</td>
-             <td>R{{profit}}</td>
+              <td>{{supplier_name}}</td>
+              <td>R{{profit}}</td>
             </tr>
          {{/categoryProfits}}
         </table>
