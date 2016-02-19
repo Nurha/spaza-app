@@ -9,6 +9,7 @@ var express = require('express'),
     sales = require('./routes/sales'),
     categories = require('./routes/categories'),
     suppliers = require('./routes/suppliers'),
+    login = require('./routes/login'),
     purchases = require('./routes/purchases');
 
 var app = express();
@@ -40,7 +41,8 @@ function errorHandler(err, req, res, next) {
 }
 
 //setup the handlers
-app.get('/', products.home);
+app.get('/', login.userLogin);
+app.get('/home', products.home);
 app.get('/products', products.show);
 app.get('/products/add', products.showAdd);
 app.post('/products/add', products.add);
