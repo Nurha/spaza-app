@@ -41,7 +41,10 @@ function errorHandler(err, req, res, next) {
 }
 
 //setup the handlers
+
+
 app.get('/', login.userLogin);
+
 app.get('/home', products.home);
 app.get('/products', products.show);
 app.get('/products/add', products.showAdd);
