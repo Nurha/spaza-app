@@ -48,3 +48,13 @@ CREATE TABLE  `Sales` (
     FOREIGN KEY (product_id) REFERENCES Products(product_id),
     PRIMARY KEY(sales_id)
 );
+
+DROP TABLE IF EXISTS `User`;
+CREATE TABLE  `User` (
+    `user_id` int NOT NULL auto_increment,
+    `user_name` char(100),
+    `user_password` varchar(60)NOT NULL,
+    `description`varchar(10)NOT NULL,
+    `locked` tinyint(1) NOT NULL,
+    PRIMARY KEY(user_id)
+);
