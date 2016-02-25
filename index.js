@@ -5,11 +5,14 @@ var express = require('express'),
     mysql = require('mysql'),
     myConnection = require('express-myconnection'),
     bodyParser = require('body-parser'),
+    bcrypt = require('bcrypt'),
+    session = require('express-session'),
     products = require('./routes/products'),
     sales = require('./routes/sales'),
     categories = require('./routes/categories'),
     suppliers = require('./routes/suppliers'),
     login = require('./routes/login'),
+    user = require('./routes/user'),
     purchases = require('./routes/purchases');
 
 var app = express();
@@ -41,7 +44,9 @@ function errorHandler(err, req, res, next) {
 }
 
 //setup the handlers
-
+app.get('/signup', user.addUser);
+app.post('/signup',user.addUser );
+app.get('/user', user.showUser);
 
 app.get('/', login.userLogin);
 

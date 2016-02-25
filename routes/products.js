@@ -21,10 +21,11 @@ exports.home = function(req, res){
 exports.showAdd = function(req, res){
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
-	connection.query('SELECT * from Categories', [], function(err, categories) {
-	res.render('addProducts',{categories: categories});
-
-	});
+		connection.query('SELECT * from Categories', [], function(err, categories) {
+			res.render('addProducts', {
+				categories: categories
+			});
+		});
 	});
 };
 

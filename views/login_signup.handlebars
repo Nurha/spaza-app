@@ -21,17 +21,17 @@
 
     <div class="login-page">
   <div class="form">
-    <form class="register-form">
-      <input type="text" class="form-control" autocomplete="off" name="username" placeholder="name"/>
-      <input type="password" name="password" class="form-control" placeholder="password"/>
-      <input type="password" name="password_confirm" class="form-control" placeholder="re-type password"/>
+    <form class="register-form" action="/signup" method="POST">
+      <input type="text" class="form-control" autocomplete="off" name="user_name" placeholder="name"/>
+      <input type="password" name="user_password" placeholder="password"/>
+      <input type="password" name="password_confirm" placeholder="re-type password"/>
       <button>create</button>
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>
 
     <form class="login-form">
-      <input type="text" placeholder="username"/>
-      <input type="password" placeholder="password"/>
+      <input type="text" name="user_name" autocomplete="off" placeholder="username"/>
+      <input type="password" name="user_password" placeholder="password"/>
       <button>login</button>
       <p class="message">Not registered? <a href="#">Create an account</a></p>
     </form>
