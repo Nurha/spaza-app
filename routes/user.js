@@ -40,14 +40,13 @@ exports.addUser = function(req, res, next){
 
 exports.addUserAdmin = function(req, res, next){
   req.getConnection(function(err, connection){
-    var input = JASON.parse(JSON.stringify(req.body));
     var data = {
-        user_name : input.user_name,
-        user_password : input.user_password,
+        user_name : req.body.user_name,
+        user_password : req.body.user_password,
         description : "admin"
     };
     bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash(input.user_password, salt, function(err, hash) {
+      bcrypt.hash(req.body.user_password, salt, function(err, hash) {
               // Store hash in your password DB.
 
               // console.log("hash details...")

@@ -43,7 +43,6 @@ exports.getCategories = function(req, res, next){
 		connection.query('SELECT * FROM Categories WHERE category_id = ?', [category_id], function(err, rows){
 			if(err) return next(err);
 			res.render('editCategories', {
-				//page_title:'Edit Categories - Node.js',
 				data : rows[0]
 			});
 		});
