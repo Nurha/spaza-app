@@ -23,8 +23,8 @@
   <div class="form">
     <form class="register-form" action="/signup" method="POST">
       <input type="text" class="form-control" autocomplete="off" name="user_name" placeholder="name"/>
-      <input type="password" name="user_password" placeholder="password"/>
-      <input type="password" name="password_confirm" placeholder="re-type password"/>
+      <input type="password" id="userPassword"  name="user_password" placeholder="password"/>
+      <input type="password" id="passwordConfirm" name="password_confirm" placeholder="re-type password"/>
       <button>create</button>
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>
@@ -37,6 +37,20 @@
     </form>
   </div>
 </div>
+<script>
+var passWord = document.getElementById('userPassword'),
+var passwordConfirm = document.getElementById('passwordConfirm');
+function validatePassword(){
+  if(userPassword.value != passwordConfirm.value){
+    passwordconfirm.setCustomValidity('no match');
+  }
+  else{
+    passwordConfirm.setCustomValidity('');
+  }
+}
+password.onchange = validatePassword;
+passwordconfirm.onkeyup = validatePassword;
+</script>
     <!--jQuery (necessary for Bootstrap's JavaScript plugins)-->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
@@ -44,5 +58,7 @@
     <script type="text/javascript" src = "js/main.js">
 
     </script>
+
+
 
 <!-- </html> -->
