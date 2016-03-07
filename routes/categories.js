@@ -83,7 +83,7 @@ exports.categoriesPopularity = function(req, res, next){
 };
 
 exports.categoryEarnings = function(req, res, next){
-	var category_id = req.params.category_id;
+	//var category_id = req.params.category_id;
 	req.getConnection(function(err, connection){
 		connection.query('SELECT Categories.category_name, SUM(Sales.qty * Sales.sales_price) AS earnings FROM Sales INNER JOIN Products ON Sales.product_id = Products.product_id INNER JOIN Categories ON Categories.category_id = Products.category_id GROUP BY Categories.category_name ORDER BY earnings DESC', [], function(err, result){
 			if(err) return next(err);

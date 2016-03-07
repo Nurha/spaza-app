@@ -43,6 +43,15 @@ function errorHandler(err, req, res, next) {
   res.render('error', { error: err });
 }
 
+// var check = function(req,res,next){
+//   if(req.session.user){
+//     next();
+//   }
+//   else{
+//     res.redirect('/');
+//   }
+// };
+
 //setup the handlers
 app.get('/signup', user.addUser);
 app.post('/signup',user.addUser );

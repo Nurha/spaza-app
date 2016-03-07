@@ -1,3 +1,7 @@
+exports.home = function(req, res){
+	res.render('home')
+}
+
 exports.show = function (req, res, next) {
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
@@ -13,10 +17,6 @@ exports.show = function (req, res, next) {
 		});
 	});
 };
-
-exports.home = function(req, res){
-	res.render('home')
-}
 
 exports.showAdd = function(req, res){
 	req.getConnection(function(err, connection){

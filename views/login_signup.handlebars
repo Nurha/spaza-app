@@ -22,35 +22,38 @@
     <div class="login-page">
   <div class="form">
     <form class="register-form" action="/signup" method="POST">
-      <input type="text" class="form-control" autocomplete="off" name="user_name" placeholder="name"/>
+      <input type="text" class="form-control" autocomplete="off" name="user_name" placeholder="name" required/>
       <input type="password" id="userPassword"  name="user_password" placeholder="password"/>
       <input type="password" id="passwordConfirm" name="password_confirm" placeholder="re-type password"/>
-      <button>create</button>
+      <button onClick ="validatePassword()">create</button>
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>
 
     <form class="login-form">
       <input type="text" name="user_name" autocomplete="off" placeholder="username"/>
       <input type="password" name="user_password" placeholder="password"/>
-      <button>login</button>
+      <button a href="/home">login</button>
       <p class="message">Not registered? <a href="#">Create an account</a></p>
     </form>
   </div>
 </div>
+
 <script>
-var passWord = document.getElementById('userPassword'),
+var passWord = document.getElementById('userPassword');
 var passwordConfirm = document.getElementById('passwordConfirm');
 function validatePassword(){
   if(userPassword.value != passwordConfirm.value){
-    passwordconfirm.setCustomValidity('no match');
+
+    passwordConfirm.setCustomValidity('passwords do not match');
   }
-  else{
+  else {
     passwordConfirm.setCustomValidity('');
   }
 }
-password.onchange = validatePassword;
-passwordconfirm.onkeyup = validatePassword;
+passWord.onchange = validatePassword;
+passwordConfirm.onkeyup = validatePassword;
 </script>
+
     <!--jQuery (necessary for Bootstrap's JavaScript plugins)-->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
