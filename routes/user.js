@@ -32,21 +32,21 @@ exports.addUser = function(req, res, next){
   });
 };
 
-exports.addUserAdmin = function(req, res, next){
-  req.getConnection(function(err, connection){
-    var data = {
-        user_name : req.body.user_name,
-        user_password : req.body.user_password,
-        description : "admin"
-    };
-    bcrypt.genSalt(10, function(err, salt) {
-      bcrypt.hash(req.body.user_password, salt, function(err, hash) {
-              data.user_password = hash;
-        connection.query('insert into User set ?', [data], function(err, results) {
-  			if (err) return next(err);
-			  res.redirect('/');
-        });
-      });
-    });
-  });
-};
+// exports.addUserAdmin = function(req, res, next){
+//   req.getConnection(function(err, connection){
+//     var data = {
+//         user_name : req.body.user_name,
+//         user_password : req.body.user_password,
+//         description : "admin"
+//     };
+//     bcrypt.genSalt(10, function(err, salt) {
+//       bcrypt.hash(req.body.user_password, salt, function(err, hash) {
+//               data.user_password = hash;
+//         connection.query('insert into User set ?', [data], function(err, results) {
+//   			if (err) return next(err);
+// 			  res.redirect('/');
+//         });
+//       });
+//     });
+//   });
+// };
