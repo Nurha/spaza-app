@@ -38,19 +38,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 3600000 }, resave: true, saveUninitialized: true}));
+
 function errorHandler(err, req, res, next) {
   res.status(500);
   res.render('error', { error: err });
 }
 
-// var check = function(req,res,next){
-//   if(req.session.user){
-//     next();
-//   }
-//   else{
-//     res.redirect('/');
-//   }
-// };
 
 //setup the handlers
 app.get('/signup', user.addUser);
@@ -60,9 +54,10 @@ app.post('/signup',user.addUser );
 //app.get('/user', user.showUser);
 
 app.get('/', login.userLogin);
-
-app.get('/home', products.home);
-app.get('/products', products.show);
+app.post('/', login.login);
+app.use(login.check);
+app.get('/home', login.check, products.home);
+app.get('/products',login.check, products.show);
 app.get('/products/add', products.showAdd);
 app.post('/products/add', products.add);
 app.get('/products/edit/:product_id', products.get);
