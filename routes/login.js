@@ -16,9 +16,7 @@ exports.check = function(req,res,next){
 exports.login = function(req, res, next){
 	req.getConnection(function(err, connection){
 		var input = JSON.parse(JSON.stringify(req.body));
-		// console.log(input);
-
-			var user_name = input.user_name;
+		var user_name = input.user_name;
 
 			if(err){
 				return next(err);
@@ -28,7 +26,6 @@ exports.login = function(req, res, next){
 
 				var user = users[0];
 				bcrypt.compare(input.user_password, user.user_password, function(err, pass){
-					// console.log(user);
 					if(err){
 						next(err)
 					};
@@ -44,4 +41,9 @@ exports.login = function(req, res, next){
 				});
 			});
 		});
+};
+
+exports.logout = function(req, res){
+	delete req.session.user
+	res.redirect('/');
 };

@@ -55,7 +55,10 @@ app.post('/signup',user.addUser );
 
 app.get('/', login.userLogin);
 app.post('/', login.login);
+app.get('/logout',login.logout);
 app.use(login.check);
+
+
 app.get('/home', login.check, products.home);
 app.get('/products',login.check, products.show);
 app.get('/products/add', login.check, products.showAdd);
