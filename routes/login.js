@@ -29,8 +29,8 @@ exports.login = function(req, res, next){
 					if(err){
 						next(err)
 					};
-					if(pass){
 
+					if(pass){
 						req.session.user = user_name;
 						req.session.description = user.description;
 						return res.redirect('/home');
