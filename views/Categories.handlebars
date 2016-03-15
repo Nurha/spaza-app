@@ -5,9 +5,10 @@
 		<div class = "col-xs-12">
 
 			<!-- <a href ="/categories/addCategories">Add a category</a> -->
+			{{#admin}}
 			<a href="/categories/addCategories"  class= "btn btn-primary">
 			<span class= "glyphicon glyphicon-plus"></span> Add a category</a>
-
+			{{/admin}}
 			<div class = "table-responsive">
 				<table class = "table" id = "categoryList">
 					<thead>
@@ -15,20 +16,21 @@
 							<th>Category id</th>
 							<th>Category name</th>
 						</tr>
-					</thead>	
+					</thead>
 					{{#categories}}
 						<tr>
 							<td>{{category_id}}</td>
 							<td>{{category_name}}</td>
-						
+
 							<!-- <td><a href="/categories/editCategories/{{category_id}}">Edit</a></td>
 							<td><a href="/categories/delete/{{category_id}}">Delete</a></td> -->
-
+							{{#admin}}
 							<td><a href="/categories/editCategories/{{category_id}}" class="btn btn-primary">
 							<span class="glyphicon glyphicon-edit"></span> Edit</a></td>
-							
+
 							<td><a href="/categories/delete/{{category_id}}" class= "btn btn-primary">
 							<span class="glyphicon glyphicon-trash"></span> Delete</a></td>
+							{{/admin}}
 						</tr>
 					{{/categories}}
 				</table>
