@@ -1,7 +1,9 @@
 var bcrypt = require('bcrypt');
 
 exports.userLogin = function(req, res){
-	res.render('login_signup')
+	res.render('login_signup',{
+		layout : false
+	});
 };
 
 exports.check = function(req,res,next){
@@ -22,7 +24,13 @@ exports.login = function(req, res, next){
 				return next(err);
 			};
 			connection.query('SELECT * FROM User WHERE user_name = ?', user_name, function(err, users){
-				console.log(JSON.stringify(users[0].description) +'im here');
+				console.log(JSON.stringify(users[0]) +'im here');
+				if(users[0]=== undefined){
+					return res.redirect('/');
+				};
+			// connection.query('SELECT * FROM User', [], function(err, result){
+			// 		console.log(result[0].description);
+			// 	});
 
 				var user = users[0];
 				bcrypt.compare(input.user_password, user.user_password, function(err, pass){
