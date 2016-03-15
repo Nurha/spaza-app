@@ -29,7 +29,6 @@ exports.login = function(req, res, next){
 				return res.redirect('/');
 			};
 
-
 			var user = users[0];
 			bcrypt.compare(input.user_password, user.user_password, function(err, pass){
 				if(err){

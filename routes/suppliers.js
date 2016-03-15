@@ -1,10 +1,14 @@
 exports.showSuppliers = function(req, res, next){
+	var admin = req.session.description === 'admin'
+	var  customer = req.session.description === 'customer'
 	req.getConnection(function(err, connection){
 		if(err) return next(err);
 		connection.query('SELECT * FROM Suppliers ORDER BY supplier_id', [], function(err, results){
 			res.render('Suppliers',{
 				no_suppliers : results.length===0,
-				suppliers : results
+				suppliers : results,
+				admin : admin,
+				customer : customer
 			});
 		});
 	});

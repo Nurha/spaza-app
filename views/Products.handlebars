@@ -1,45 +1,46 @@
 <h1>Product List</h1>
 
-<div class = "container-fluid">
-	<div class = "row">
-		<div class = "col-xs-12">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12">
 			{{#admin}}
-			<a href="/products/add"  class= "btn btn-primary">
-			<span class= "glyphicon glyphicon-plus"></span> Add product</a>
+				<a href="/products/add" class="btn btn-primary">
+					<span class="glyphicon glyphicon-plus"></span> Add product</a>
 
 
-			<div class = "table-responsive">
-				<table class ="table" id = "productList">
-					<thead>
-						<tr>
-							<th>Product id</th>
-							<th>Product name</th>
-							<th>Category name</th>
-						</tr>
-					</thead>
-					{{#products}}
-						<tr>
-							<td>{{product_id}}</td>
-							<td>{{product_name}}</td>
-							<td>{{category_name}}</td>
+				<div class="table-responsive">
+					<table class="table" id="productList">
+						<thead>
+							<tr>
+								<th>Product id</th>
+								<th>Product name</th>
+								<th>Category name</th>
+							</tr>
+						</thead>
+						{{#products}}
+							<tr>
+								<td>{{product_id}}</td>
+								<td>{{product_name}}</td>
+								<td>{{category_name}}</td>
 
+								<td>
+									<a href="/products/edit/{{product_id}}" class="btn btn-primary">
+										<span class="glyphicon glyphicon-edit"></span> Edit</a>
+								</td>
 
-							<td><a href="/products/edit/{{product_id}}" class="btn btn-primary">
-							<span class= "glyphicon glyphicon-edit" ></span> Edit</a></td>
+								<td>
+									<a href="/products/delete/{{product_id}}" class="btn btn-primary">
+									<span class="glyphicon glyphicon-trash"></span> Delete</a>
+								</td>
+							</tr>
+						{{/products}}
 
-							<td><a href="/products/delete/{{product_id}}" class= "btn btn-primary">
-							<span class= "glyphicon glyphicon-trash"></span> Delete</a></td>
-
-
-						</tr>
-					{{/products}}
-
-				</table>
-			</div>
+					</table>
+				</div>
 		</div>
-			{{/admin}}
-		<div class = "table-responsive">
-			<table class ="table" id = "productList">
+		{{/admin}}
+		<div class="table-responsive">
+			<table class="table" id="productList">
 				<thead>
 					<tr>
 						<th>Product id</th>
@@ -57,6 +58,5 @@
 
 			</table>
 		</div>
-	</div>
 	</div>
 </div>
