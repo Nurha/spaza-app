@@ -1,14 +1,13 @@
 exports.showCategories = function(req, res, next) {
   var admin = req.session.description === 'admin'
-  var customer = req.session.description === 'customer'
   req.getConnection(function(err, connection) {
     if (err) return next(err);
     connection.query('SELECT * FROM Categories', [], function(err, results) {
       res.render('Categories', {
         no_categories: results.length === 0,
         categories: results,
-        admin : admin,
-        customer : customer
+        admin : admin
+
       });
     });
   });

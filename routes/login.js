@@ -24,7 +24,7 @@ exports.login = function(req, res, next){
 			return next(err);
 		};
 		connection.query('SELECT * FROM User WHERE user_name = ?', user_name, function(err, users){
-			console.log(JSON.stringify(users[0]) +'im here');
+			// console.log(JSON.stringify(users[0]) +'im here');
 			if(users[0] === undefined){
 				return res.redirect('/');
 			};

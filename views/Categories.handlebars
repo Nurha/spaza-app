@@ -3,9 +3,11 @@
 <div class = "container-fluid">
 	<div class = "row">
 		<div class = "col-xs-12">
+
 			{{#admin}}
 			<a href="/categories/addCategories"  class= "btn btn-primary">
 			<span class= "glyphicon glyphicon-plus"></span> Add a category</a>
+			{{/admin}}
 
 			<div class = "table-responsive">
 				<table class = "table" id = "categoryList">
@@ -20,36 +22,17 @@
 							<td>{{category_id}}</td>
 							<td>{{category_name}}</td>
 
+							{{#if ../admin}}
 							<td><a href="/categories/editCategories/{{category_id}}" class="btn btn-primary">
 							<span class="glyphicon glyphicon-edit"></span> Edit</a></td>
 
 							<td><a href="/categories/delete/{{category_id}}" class= "btn btn-primary">
 							<span class="glyphicon glyphicon-trash"></span> Delete</a></td>
-
+							{{/if }}
 						</tr>
 					{{/categories}}
 				</table>
 			</div>
-{{/admin}}
-{{#customer}}
-			<div class = "table-responsive">
-				<table class = "table" id = "categoryList">
-					<thead>
-						<tr>
-							<th>Category id</th>
-							<th>Category name</th>
-						</tr>
-					</thead>
-					{{#categories}}
-						<tr>
-							<td>{{category_id}}</td>
-							<td>{{category_name}}</td>
-
-						</tr>
-					{{/categories}}
-				</table>
-			</div>
-		{{/customer}}
 		</div>
 	</div>
 </div>
