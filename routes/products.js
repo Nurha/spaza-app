@@ -1,5 +1,8 @@
 exports.home = function(req, res) {
-  res.render('home')
+  var admin =req.session.description ==='admin'
+  res.render('home', {
+    admin : admin
+  });
 }
 
 exports.show = function(req, res, next) {

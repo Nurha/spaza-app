@@ -5,8 +5,8 @@
 		<div class = "col-xs-12">
 		{{#admin}}
 		<a href="/suppliers/addSuppliers"  class= "btn btn-primary">
-			<span class= "glyphicon glyphicon-plus"></span> Add a new suppler</a>
-
+		<span class= "glyphicon glyphicon-plus"></span></a>
+		{{/admin}}
 			<div class = "table-responsive">
 				<table class = "table" id = "suppliers">
 					<thead>
@@ -19,35 +19,17 @@
 						<tr>
 							<td>{{supplier_id}}</td>
 							<td>{{supplier_name}}</td>
-
+							{{#if ../admin}}
 							<td><a href="/suppliers/editSuppliers/{{supplier_id}}" class="btn btn-primary">
-							<span class="glyphicon glyphicon-edit"></span> Edit</a></td>
+							<span class="glyphicon glyphicon-edit"></span></a></td>
 
 							<td><a href="/suppliers/delete/{{supplier_id}}" class= "btn btn-primary">
-							<span class="glyphicon glyphicon-trash"></span> Delete</a></td>
+							<span class="glyphicon glyphicon-trash"></span></a></td>
+							{{/if}}
 						</tr>
 					{{/suppliers}}
 				</table>
 			</div>
-			{{/admin}}
-			{{#customer}}
-			<div class = "table-responsive">
-				<table class = "table" id = "suppliers">
-					<thead>
-						<tr>
-							<th>Supplier id</th>
-							<th>Supplier name</th>
-						</tr>
-					</thead>
-						{{#suppliers}}
-						<tr>
-							<td>{{supplier_id}}</td>
-							<td>{{supplier_name}}</td>
-						</tr>
-					{{/suppliers}}
-				</table>
-			</div>
-			{{/customer}}
 		</div>
 	</div>
 </div>
