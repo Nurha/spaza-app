@@ -51,7 +51,7 @@ app.get('/signup', user.addUser);
 app.post('/signup',user.addUser );
 // app.get('/signup',user.addUserAdmin);
 // app.post('/signup',user.addUserAdmin);
-//app.get('/user', user.showUser);
+// app.get('/user', user.showUser);
 
 app.get('/', login.userLogin);
 app.post('/', login.login);

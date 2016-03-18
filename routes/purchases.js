@@ -1,10 +1,12 @@
 exports.showPurchases = function(req, res, next){
+	var admin = req.session.description === 'admin'
 	req.getConnection(function(err, connection){
 		if(err) return next(err);
 		connection.query('SELECT Purchases.purchase_id, Suppliers.supplier_name, Products.product_name, Purchases.cost_price, Purchases.qty, DATE_FORMAT(Purchases.date, "%d/%m/%Y") as date FROM Purchases INNER JOIN Suppliers ON Suppliers.supplier_id = Purchases.supplier_id INNER JOIN Products ON Products.product_id = Purchases.product_id ORDER BY Purchases.date DESC', [], function(err, results){
 			res.render('Purchases',{
 				no_purchases : results.length===0,
-				purchases : results
+				purchases : results,
+				admin : admin
 			});
 		});
 	});
@@ -17,10 +19,10 @@ exports.showAddPurchases = function(req, res){
 			connection.query('SELECT * FROM Suppliers', [], function(err, suppliers){
 
 				if (err) return next(err);
-				res.render('addPurchases',{ 
+				res.render('addPurchases',{
 					products : products,
                 	suppliers : suppliers
-		
+
             	});
 			});
 		});

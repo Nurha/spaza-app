@@ -110,12 +110,14 @@ exports.productEarnings = function(req, res, next) {
 };
 
 exports.productProfits = function(req, res, next) {
+  var admin = req.session.description === 'admin'
   var product_id = req.params.prroduct_id;
   req.getConnection(function(err, connection) {
     connection.query('SELECT product_name, supplier_name, (sales_price-cost_price) AS Profit FROM Products, Sales, Purchases, Suppliers WHERE Products.product_id = Sales.product_id And Sales.product_id = Purchases.product_id AND Purchases.supplier_id = Suppliers.supplier_id GROUP BY product_name ORDER BY Profit DESC', [], function(err, result) {
       if (err) return (err);
       res.render('productProfits', {
-        productProfits: result
+        productProfits: result,
+        admin : admin
       });
     });
   });

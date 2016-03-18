@@ -74,12 +74,14 @@ exports.delete = function(req, res, next) {
 };
 
 exports.categoriesPopularity = function(req, res, next) {
+  var admin = req.session.description === 'admin'
   var categories_id = req.params.categories_id;
   req.getConnection(function(err, connection) {
     connection.query('SELECT Categories.category_name, sum( Sales.Qty ) AS qty FROM Sales INNER JOIN Products ON Sales.product_id = Products.product_id INNER JOIN Categories ON Products.Category_id = Categories.category_id GROUP BY Categories.category_name ORDER BY qty DESC', [], function(err, results) {
       if (err) return next(err);
       res.render('categoriesPopularity', {
-        categoriesPopularity: results
+        categoriesPopularity: results,
+        admin : admin
       });
     });
   });

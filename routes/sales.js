@@ -1,13 +1,13 @@
 exports.showSales = function (req, res, next){
+	var admin = req.session.description === 'admin'
 	req.getConnection(function(err, connection){
 		if (err) return next(err);
 		connection.query("SELECT  Sales.sales_id, Products.product_name, Sales.qty, DATE_FORMAT(Sales.date, '%d/%m/%Y') as date, Sales.sales_price FROM Sales INNER JOIN Products ON Sales.product_id = Products.product_id ORDER BY Sales.date DESC", [], function(err, results){
-			
+
 				res.render('Sales',{
 					no_sales : results.length === 0,
-					sales : results
-					
-				
+					sales : results,
+					admin : admin
 			});
 		});
 	});
@@ -18,7 +18,7 @@ exports.showAddSales = function(req, res){
 		if (err) return next(err);
 		connection.query('SELECT * FROM Products', [], function(err, products){
 			if (err) return next(err);
-			res.render('addSales',{ 
+			res.render('addSales',{
 				products : products
 			});
 		});
@@ -79,5 +79,3 @@ exports.delete = function(req, res, next){
 		});
 	});
 };
-
-
