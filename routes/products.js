@@ -86,24 +86,28 @@ exports.delete = function(req, res, next) {
 };
 
 exports.productPopularity = function(req, res, next) {
+  var admin = req.session.description === 'admin'
   var product_id = req.params.product_id;
   req.getConnection(function(err, connection) {
     connection.query('SELECT product_name, supplier_name, Sum(Sales.qty) AS qty FROM Products, Sales, Purchases, Suppliers WHERE Products.product_id = Sales.product_id AND Products.product_id = Purchases.product_id AND Purchases.supplier_id = Suppliers.supplier_id GROUP BY Products.product_name ORDER BY qty DESC', [], function(err, results) {
       if (err) return next(err);
       res.render('productPopularity', {
-        productPopularity: results
+        productPopularity: results,
+        admin : admin
       });
     });
   });
 };
 
 exports.productEarnings = function(req, res, next) {
+  var admin = req.session.description === 'admin'
   var product_id = req.params.product_id;
   req.getConnection(function(err, connection) {
     connection.query('SELECT Products.product_name, SUM(Sales.qty * Sales.sales_price) AS earnings FROM Sales INNER JOIN Products ON Sales.product_id = Products.product_id GROUP BY Products.product_name ORDER BY earnings DESC', [], function(err, result) {
       if (err) return (err);
       res.render('productEarnings', {
-        productEarnings: result
+        productEarnings: result,
+        admin : admin
       });
     });
   });

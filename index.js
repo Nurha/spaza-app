@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 3600000 }, resave: true, saveUninitialized: true}));
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 5600000 }, resave: true, saveUninitialized: true}));
 
 function errorHandler(err, req, res, next) {
   res.status(500);
@@ -49,8 +49,6 @@ function errorHandler(err, req, res, next) {
 //setup the handlers
 app.get('/signup', user.addUser);
 app.post('/signup',user.addUser );
-// app.get('/signup',user.addUserAdmin);
-// app.post('/signup',user.addUserAdmin);
 // app.get('/user', user.showUser);
 
 app.get('/', login.userLogin);

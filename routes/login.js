@@ -48,6 +48,10 @@ exports.login = function(req, res, next){
 	});
 };
 
+exports.lock = function(req, res){
+	
+};
+
 exports.logout = function(req, res){
 	delete req.session.user
 	res.redirect('/');
