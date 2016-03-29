@@ -69,3 +69,11 @@ body{
 }
 
 /* ------------ close --------------- */
+
+/*add button*/
+.addBtn{
+	float: right;
+  top: 10px;
+  right: 10px;
+	margin-right: 10px;
+}

@@ -15,6 +15,10 @@ exports.check = function(req,res,next){
 	}
 };
 
+// exports.lock = function(req, res){
+//
+// };
+
 exports.login = function(req, res, next){
 	req.getConnection(function(err, connection){
 		var input = JSON.parse(JSON.stringify(req.body));
@@ -46,10 +50,6 @@ exports.login = function(req, res, next){
 			});
 		});
 	});
-};
-
-exports.lock = function(req, res){
-	
 };
 
 exports.logout = function(req, res){

@@ -49,7 +49,7 @@ function errorHandler(err, req, res, next) {
 //setup the handlers
 app.get('/signup', user.addUser);
 app.post('/signup',user.addUser );
-// app.get('/user', user.showUser);
+app.get('/user', user.showUser);
 
 app.get('/', login.userLogin);
 app.post('/', login.login);

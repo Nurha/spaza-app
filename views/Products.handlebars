@@ -1,15 +1,23 @@
 <h1>Product List</h1>
 
+
+<form class="navbar-form navbar-left" role="search">
+	<div class="form-group">
+		<input type="text" class="form-control" placeholder="Search Products">
+	</div>
+	<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+</form>
+
+{{#admin}}
+	<a href="/products/add" class="btn btn-primary btn-lg addBtn">
+	<span class="glyphicon glyphicon-plus"></span></a>
+{{/admin}}
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-12">
-			{{#admin}}
-				<a href="/products/add" class="btn btn-primary">
-				<span class="glyphicon glyphicon-plus"></span></a>
-			{{/admin}}
-
-				<div class="table-responsive">
-					<table class="table" id="productList">
+			<div class="table-responsive">
+				<table class="table" id="productList">
 						<thead>
 							<tr>
 								<th>Product id</th>

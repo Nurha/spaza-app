@@ -1,12 +1,14 @@
 var bcrypt = require('bcrypt');
 
 exports.showUser = function(req, res, next){
+  var admin = req.session.description === 'admin'
   req.getConnection(function(err, connection){
     if(err) return next(err);
     connection.query('SELECT * FROM User', [], function(err, result){
       if(err) throw err;
       res.render('User',{
-        user : result
+        user : result,
+        admin : admin
       });
     });
   });
