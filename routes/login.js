@@ -30,6 +30,7 @@ exports.login = function(req, res, next){
 		connection.query('SELECT * FROM User WHERE user_name = ?', user_name, function(err, users){
 			// console.log(JSON.stringify(users[0]) +'im here');
 			if(users[0] === undefined){
+				req.flash('message', 'invalid username');
 				return res.redirect('/');
 			};
 
@@ -45,6 +46,7 @@ exports.login = function(req, res, next){
 					return res.redirect('/home');
 				}
 				else {
+					req.flash('message', 'invalid password');
 					res.redirect('/');
 				};
 			});

@@ -6,6 +6,7 @@ var express = require('express'),
     myConnection = require('express-myconnection'),
     bodyParser = require('body-parser'),
     bcrypt = require('bcrypt'),
+    flash = require('express-flash'),
     session = require('express-session'),
     products = require('./routes/products'),
     sales = require('./routes/sales'),
@@ -39,6 +40,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 5600000 }, resave: true, saveUninitialized: true}));
+
+ app.use(flash());
 
 function errorHandler(err, req, res, next) {
   res.status(500);
