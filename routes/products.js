@@ -115,13 +115,25 @@ exports.productEarnings = function(req, res, next) {
 
 exports.productProfits = function(req, res, next) {
   var admin = req.session.description === 'admin'
-  var product_id = req.params.prroduct_id;
   req.getConnection(function(err, connection) {
     connection.query('SELECT product_name, supplier_name, (sales_price-cost_price) AS Profit FROM Products, Sales, Purchases, Suppliers WHERE Products.product_id = Sales.product_id And Sales.product_id = Purchases.product_id AND Purchases.supplier_id = Suppliers.supplier_id GROUP BY product_name ORDER BY Profit DESC', [], function(err, result) {
       if (err) return (err);
       res.render('productProfits', {
         productProfits: result,
         admin : admin
+      });
+    });
+  });
+};
+
+exports.searchProducts = function(req, res, next){
+  req.getConnection(function(err, connection){
+    var searchVal = '%'+ req.params.searchVal +'%';
+    connection.query('SELECT * FROM Products WHERE product_name LIKE ?', [searchVal], function(err, result){
+      if(err) return console.log(err);
+      res.render('search',{
+        Products : result,
+        layout : false
       });
     });
   });

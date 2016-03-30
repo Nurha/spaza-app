@@ -90,3 +90,9 @@ AND Purchases.supplier_id = Suppliers.supplier_id
 GROUP BY Products.product_name
 ORDER BY qty
 DESC;
+
+-- searchProducts
+SELECT prod_id, prod_name, cat_name
+FROM category, product
+WHERE category.cat_id = product.cat_id
+AND (prod_name LIKE ? OR cat_name LIKE ?)
