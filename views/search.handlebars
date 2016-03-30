@@ -1,28 +1,52 @@
-<table class="table" id="productList">
-    <thead>
-      <tr>
-        <!-- <th>Product id</th> -->
-        <th>Product name</th>
-        <!-- <th>Category name</th> -->
-      </tr>
-    </thead>
-    {{#products}}
-      <tr>
-        <!-- <td>{{product_id}}</td> -->
-        <td>{{product_name}}</td>
-        <!-- <td>{{category_name}}</td> -->
-        <!-- {{#if../admin}}
-        <td>
-          <a href="/products/edit/{{product_id}}" class="btn btn-primary">
-            <span class="glyphicon glyphicon-edit"></span></a>
-        </td>
+<h1>Product List</h1>
 
-        <td>
-          <a href="/products/delete/{{product_id}}" class="btn btn-primary">
-          <span class="glyphicon glyphicon-trash"></span></a>
-        </td>
-        {{/if}} -->
-      </tr>
-    {{/products}}
 
-  </table>
+<form class="navbar-form navbar-left" role="search" action="/products/search" method="post">
+	<div class="form-group">
+		<input type="text" class="form-control" name="searchVal" placeholder="Search Products">
+	</div>
+	<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+</form>
+
+{{#admin}}
+	<a href="/products/add" class="btn btn-primary btn-lg addBtn">
+	<span class="glyphicon glyphicon-plus"></span></a>
+{{/admin}}
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="table-responsive">
+				<table class="table" id="productList">
+						<thead>
+							<tr>
+								<th>Product id</th>
+								<th>Product name</th>
+								<th>Category name</th>
+							</tr>
+						</thead>
+						{{#products}}
+							<tr>
+								<td>{{product_id}}</td>
+								<td>{{product_name}}</td>
+								<td>{{category_name}}</td>
+								{{#if../admin}}
+								<td>
+									<a href="/products/edit/{{product_id}}" class="btn btn-primary">
+										<span class="glyphicon glyphicon-edit"></span></a>
+								</td>
+
+								<td>
+									<a href="/products/delete/{{product_id}}" class="btn btn-primary">
+									<span class="glyphicon glyphicon-trash"></span></a>
+								</td>
+								{{/if}}
+							</tr>
+						{{/products}}
+
+					</table>
+          <a href="/products" class="btn btn-primary">show all</a>
+				</div>
+		</div>
+	</div>
+</div>

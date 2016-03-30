@@ -58,7 +58,7 @@ app.use(login.check);
 
 
 app.get('/home', login.check, products.home);
-app.get('/products/search/:searchVal', login.check, products.searchProducts);
+app.post('/products/search', login.check, products.searchProducts);
 app.get('/products',login.check, products.show);
 app.get('/products/add', login.check, products.showAdd);
 app.post('/products/add', login.check, products.add);

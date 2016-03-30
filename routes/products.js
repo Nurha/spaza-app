@@ -127,13 +127,15 @@ exports.productProfits = function(req, res, next) {
 };
 
 exports.searchProducts = function(req, res, next){
+  var admin = req.session.description === 'admin'
   req.getConnection(function(err, connection){
-    var searchVal = '%'+ req.params.searchVal +'%';
-    connection.query('SELECT * FROM Products WHERE product_name LIKE ?', [searchVal], function(err, result){
+    var searchVal = '%'+ req.body.searchVal +'%';
+    console.log(searchVal);
+    connection.query('SELECT * FROM Products INNER JOIN Categories ON Products.category_id = Categories.category_id WHERE product_name LIKE ?', [searchVal], function(err, result){
       if(err) return console.log(err);
       res.render('search',{
-        Products : result,
-        layout : false
+        products : result,
+        admin : admin
       });
     });
   });
