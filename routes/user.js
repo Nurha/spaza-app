@@ -36,10 +36,10 @@ exports.addUser = function(req, res, next){
 
 exports.delete = function(req, res, next){
   var user_id = req.params.user_id;
-  req.getConnection(function(err, connectio){
+  req.getConnection(function(err, connection){
     connection.query('DELETE FROM User WHERE user_id = ?', [user_id], function(err, rows){
       if(err) return next(err);
-      res.redirect('/user');
+      res.redirect('/User');
     });
   });
 };
