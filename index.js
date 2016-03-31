@@ -79,6 +79,7 @@ app.get('/sales/editSales/:sales_id',login.check, sales.getSales);
 app.post('/sales/updateSales/:sales_id',login.check, sales.updateSales);
 app.get('/sales/delete/:sales_id',login.check, sales.delete);
 
+app.post('/categories/search', login.check, categories.searchCategories)
 app.get('/categories',login.check, categories.showCategories);
 app.get('/categories/addCategories',login.check, categories.showAddCategories);
 app.post('/categories/addCategories',login.check, categories.addCategories);

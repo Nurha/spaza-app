@@ -112,3 +112,17 @@ exports.categoryProfits = function(req, res, next) {
     });
   });
 };
+
+exports.searchCategories = function(req,res, next){
+  var admin = req.session.description === 'admin'
+  req.getConnection(function(err, connection){
+    var searchVal = '%' + req.body.searchVal + '%';
+    connection.query('SELECT * FROM Categories WHERE category_name LIKE ?', [searchVal], function(err, results){
+      if(err) return next(err);
+      res.render('searchCat', {
+        categories : results,
+        admin : admin
+      });
+    });
+  });
+};

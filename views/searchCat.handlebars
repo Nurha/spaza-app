@@ -2,7 +2,7 @@
 
 <form class="navbar-form navbar-left" role="search" action="/categories/search" method="post">
 	<div class="form-group">
-		<input type="text" class="form-control" name="searchVal" placeholder="Search categories">
+		<input type="text" class="form-control" name="searchVal" placeholder="Search Categories">
 	</div>
 	<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
 </form>
@@ -15,7 +15,7 @@
 <div class = "container-fluid">
 	<div class = "row">
 		<div class = "col-xs-12">
-			<div class = "table-responsive">
+      <div class = "table-responsive">
 				<table class = "table" id = "categoryList">
 					<thead>
 						<tr>
@@ -38,6 +38,9 @@
 						</tr>
 					{{/categories}}
 				</table>
+
+        <a href="/products" class="btn btn-primary">show all</a>
+
 			</div>
 		</div>
 	</div>
