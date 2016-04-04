@@ -1,12 +1,11 @@
 <h1>Product List</h1>
 
 
-<form class="navbar-form navbar-left" role="search" action="/products/search" method="post">
+<!-- <form class="navbar-form navbar-left" role="search"> -->
 	<div class="form-group">
-		<input type="text" class="form-control" name="searchVal" placeholder="Search Products">
+		<input type="text" class="form-control" name="searchVal" id="productSearchBar" placeholder="Search Products">
 	</div>
-	<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
-</form>
+<!-- </form> -->
 
 {{#admin}}
 	<a href="/products/add" class="btn btn-primary btn-lg addBtn">
@@ -17,7 +16,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="table-responsive">
-				<table class="table" id="productList">
+				<table class="table" id="productsList">
 						<thead>
 							<tr>
 								<th>Product id</th>
@@ -49,3 +48,5 @@
 		</div>
 	</div>
 </div>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/search.js"></script>

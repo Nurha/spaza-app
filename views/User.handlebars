@@ -8,22 +8,23 @@
 					<thead>
 						<tr>
 							<th>User Name</th>
-							<th>User Role</th>
-              <th>User Status</th>
+							<th>User Description</th>
+              <!-- <th>User Status</th> -->
 						</tr>
 					</thead>
 					{{#user}}
 
 						<tr>
 							<td>{{user_name}}</td>
-							<td>{{description}}</td>
-							<td>{{locked}}</td>
 
-              <!-- <td><a href="/user/editUser/{{user_id}}" class="btn btn-primary">
-							<span class="glyphicon glyphicon-edit"></span> Edit</a></td> -->
+							<!-- <td>{{locked}}</td> -->
+
+							<form action="/updateDescription/{{user_name}}" method="post">
+									<td><button type= "submit">{{description}}<button></td>
+							</form>
 
              <td><a href="/user/delete/{{user_id}}" class= "btn btn-primary">
-							<span class="glyphicon glyphicon-trash"></span></a></td>
+							<span class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure?')"></span></a></td>
 						</tr>
 					{{/user}}
 				</table>
