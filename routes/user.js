@@ -4,11 +4,17 @@ exports.showUser = function(req, res, next){
   var admin = req.session.description === 'admin'
   req.getConnection(function(err, connection){
     if(err) return next(err);
-    connection.query('SELECT * FROM User', [], function(err, result){
+    connection.query('SELECT * FROM User', [], function(err, results){
+      for(var result in results){
+        var description = results[result];
+        // console.log(results);
+        console.log(description);
+      };
       if(err) throw err;
       res.render('User',{
-        user : result,
-        admin : admin
+        user : results,
+        admin : admin,
+        description : description !== 'admin'
       });
     });
   });
@@ -30,6 +36,26 @@ exports.addUser = function(req, res, next){
           res.redirect('/');
         });
       });
+    });
+  });
+};
+
+exports.makeAdmin = function(req, res, next){
+  req.getConnection(function(err, connection){
+    var user_id = req.params.user_id;
+    connection.query('UPDATE User SET description =\'admin\' WHERE user_id = ?', [user_id], function(err, rows){
+      if(err) return next(err);
+      res.redirect('/User');
+    });
+  });
+};
+
+exports.makeCustomer = function(req, res, next){
+  req.getConnection(function(err, connection){
+    var user_id = req.params.user_id;
+    connection.query('UPDATE User SET description =\'customer\' WHERE user_id = ?', [user_id], function(err, rows){
+      if(err) return next(err);
+      res.redirect('/User');
     });
   });
 };

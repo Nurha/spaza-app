@@ -9,21 +9,26 @@
 						<tr>
 							<th>User Name</th>
 							<th>User Description</th>
-              <!-- <th>User Status</th> -->
+              <th>Action</th>
 						</tr>
 					</thead>
 					{{#user}}
 
 						<tr>
 							<td>{{user_name}}</td>
+							<td>{{description}}</td>
 
-							<!-- <td>{{locked}}</td> -->
 
-							<form action="/updateDescription/{{user_name}}" method="post">
-									<td><button type= "submit">{{description}}<button></td>
+						<td><form action="/updateDescription/customer/{{user_id}}" method="post">
+									<button type= "submit">make Customer</button>
 							</form>
 
-             <td><a href="/user/delete/{{user_id}}" class= "btn btn-primary">
+							<form action="/updateDescription/admin/{{user_id}}" method="post">
+									<button type= "submit">make Admin</button>
+							</form></td>
+
+
+						<td><a href="/user/delete/{{user_id}}" class= "btn btn-primary">
 							<span class="glyphicon glyphicon-trash" onclick="return confirm('Are you sure?')"></span></a></td>
 						</tr>
 					{{/user}}

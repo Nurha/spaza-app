@@ -53,6 +53,8 @@ function errorHandler(err, req, res, next) {
 app.get('/signup', user.addUser);
 app.post('/signup',user.addUser );
 app.get('/user', user.showUser);
+app.post('/updateDescription/customer/:user_id', user.makeCustomer);
+app.post('/updateDescription/admin/:user_id', user.makeAdmin);
 app.get('/user/delete/:user_id',login.check, user.delete);
 
 app.get('/', login.userLogin);
