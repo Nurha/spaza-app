@@ -19,13 +19,15 @@
 							<td>{{description}}</td>
 
 
-						<td><form action="/updateDescription/customer/{{user_id}}" method="post">
-									<button type= "submit">make Customer</button>
-							</form>
+						<td><form action="/updateDescription/{{user_id}}" method="post">
+							<label class="radio-inline"><input type="radio" name="description" value="customer" onclick="this.form.submit();">Customer</label>
+							<label class="radio-inline"><input type="radio" name="description" value="admin" onclick="this.form.submit();">Admin</label>
+						</form></td>
 
-							<form action="/updateDescription/admin/{{user_id}}" method="post">
-									<button type= "submit">make Admin</button>
-							</form></td>
+							<!-- <form action="/updateDescription/admin/{{user_id}}" method="post"> -->
+									<!-- <button type= "submit">make Customer</button> -->
+									<!-- <button type= "submit">make Admin</button> -->
+							<!-- </form></td> -->
 
 
 						<td><a href="/user/delete/{{user_id}}" class= "btn btn-primary">

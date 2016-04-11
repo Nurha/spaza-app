@@ -15,7 +15,7 @@ exports.check = function(req,res,next){
 	}
 };
 
-// exports.lock = function(req, res){
+// exports.lock = function(req, res, next){
 //
 // };
 
