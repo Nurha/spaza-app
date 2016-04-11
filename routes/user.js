@@ -42,16 +42,6 @@ exports.addUser = function(req, res, next){
   });
 };
 
-// exports.makeAdmin = function(req, res, next){
-//   req.getConnection(function(err, connection){
-//     var user_id = req.params.user_id;
-//     connection.query('UPDATE User SET description =\'admin\' WHERE user_id = ?', [user_id], function(err, rows){
-//       if(err) return next(err);
-//       res.redirect('/User');
-//     });
-//   });
-// };
-
 exports.makeCustomer = function(req, res, next){
   req.getConnection(function(err, connection){
     var user_id = req.params.user_id;
