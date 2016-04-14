@@ -2,6 +2,7 @@ var bcrypt = require('bcrypt');
 
 exports.showUser = function(req, res, next){
   var admin = req.session.description === 'admin'
+  var customer = req.session.description === 'customer'
   var user = req.session.user;
   req.getConnection(function(err, connection){
     if(err) return next(err);
@@ -13,6 +14,7 @@ exports.showUser = function(req, res, next){
       res.render('User',{
         user : results,
         admin : admin,
+        customer : customer,
         description : description !== 'admin'
       });
     });
