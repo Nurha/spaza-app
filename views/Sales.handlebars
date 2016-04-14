@@ -1,3 +1,4 @@
+{{#if admin}}
 <h1>Sales Records</h1>
 
 <div class = "container-fluid">
@@ -36,6 +37,9 @@
 						</tr>
 					{{/sales}}
 				</table>
+				{{else}}
+				<p> Access denied</p>
+				{{/if}}
 			</div>
 		</div>
 	</div>

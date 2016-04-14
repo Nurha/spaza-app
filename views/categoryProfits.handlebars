@@ -1,3 +1,4 @@
+{{#if admin}}
 <h1>Profits per category</h1>
 
 <div class = "container fluid">
@@ -20,6 +21,9 @@
             </tr>
          {{/categoryProfits}}
         </table>
+        {{else}}
+				<p> Access denied</p>
+				{{/if}}
       </div>
     </div>
   </div>
