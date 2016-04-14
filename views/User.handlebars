@@ -10,6 +10,7 @@
 							<th>User Name</th>
 							<th>User Description</th>
               <th>Action</th>
+							<th>Status</th>
 						</tr>
 					</thead>
 					{{#user}}
@@ -24,7 +25,12 @@
 							<label class="radio-inline"><input type="radio" name="description" value="admin" onclick="this.form.submit();">Admin</label>
 						</form></td>
 
-							<!-- <form action="/updateDescription/admin/{{user_id}}" method="post"> -->
+						<td><form action="/updateStatus/{{user_id}}" method="post">
+							<label class="radio-inline"><input type="radio" name="locked" value="blocked" onclick="this.form.submit();">Blocked</label>
+							<label class="radio-inline"><input type="radio" name="locked" value="active" onclick="this.form.submit();">Active</label>
+						</form></td>
+
+							<!-- <form action="/updateDescription/{{user_id}}" method="post"> -->
 									<!-- <button type= "submit">make Customer</button> -->
 									<!-- <button type= "submit">make Admin</button> -->
 							<!-- </form></td> -->

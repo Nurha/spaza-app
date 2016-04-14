@@ -3,14 +3,11 @@ var bcrypt = require('bcrypt');
 exports.showUser = function(req, res, next){
   var admin = req.session.description === 'admin'
   var user = req.session.user;
-  console.log(user);
   req.getConnection(function(err, connection){
     if(err) return next(err);
     connection.query('SELECT * FROM User WHERE user_name != ?', [user], function(err, results){
       for(var result in results){
         var description = results[result];
-        // console.log(results);
-        console.log(description);
       };
       if(err) throw err;
       res.render('User',{
@@ -35,6 +32,7 @@ exports.addUser = function(req, res, next){
         data.user_password = hash;
         connection.query('insert into User set ?', [data], function(err, results) {
           if (err) return next(err);
+          req.flash('message', 'sign up successful');
           res.redirect('/');
         });
       });
@@ -42,6 +40,7 @@ exports.addUser = function(req, res, next){
   });
 };
 
+// make customer or admin
 exports.makeCustomer = function(req, res, next){
   req.getConnection(function(err, connection){
     var user_id = req.params.user_id;
