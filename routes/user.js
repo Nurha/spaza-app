@@ -23,12 +23,18 @@ exports.showUser = function(req, res, next){
 
 exports.addUser = function(req, res, next){
   req.getConnection(function(err,connection){
-    var input = JSON.parse(JSON.stringify(req.body));
+    var user_password = req.body.user_password;
+    var password_confirm = req.body.password_confirm;
     var data = {
-      user_name : input.user_name,
-      user_password : input.user_password,
+      user_name : req.body.user_name,
+      user_password : req.body.user_password,
       description : "customer"
     };
+    if(user_password !== password_confirm){
+      req.flash('message', 'passwords do not match');
+      res.redirect('/');
+    }else{
+
     bcrypt.genSalt(10, function(err, salt) {
       bcrypt.hash(input.user_password, salt, function(err, hash) {
         data.user_password = hash;
@@ -39,6 +45,7 @@ exports.addUser = function(req, res, next){
         });
       });
     });
+    };
   });
 };
 
