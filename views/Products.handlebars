@@ -1,22 +1,19 @@
-<h1>Product List</h1>
+<div class="container">
+	<h1>Product List</h1>
+	<!-- <form class="navbar-form navbar-left" role="search"> -->
+		<div class="form-group">
+			<input type="text" class="form-control" name="searchVal" value="{{searchVal}}" id="productSearchBar" placeholder="Search Products">
+		</div>
+	<!-- </form> -->
 
-
-<!-- <form class="navbar-form navbar-left" role="search"> -->
-	<div class="form-group">
-		<input type="text" class="form-control" name="searchVal" value="{{searchVal}}" id="productSearchBar" placeholder="Search Products">
-	</div>
-<!-- </form> -->
-
-{{#admin}}
-	<a href="/products/add" class="btn btn-primary btn-lg addBtn">
-	<span class="glyphicon glyphicon-plus"></span></a>
-{{/admin}}
-
-<div class="container-fluid">
+	{{#admin}}
+		<a href="/products/add" class="btn btn-primary btn-lg addBtn">
+		<span class="glyphicon glyphicon-plus"></span></a>
+	{{/admin}}
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="table-responsive">
-				<table class="table" id="productList">
+				<table class="table table-striped" id="productList">
 						<thead>
 							<tr>
 								<th>Product id</th>

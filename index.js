@@ -8,6 +8,7 @@ var express = require('express'),
     bcrypt = require('bcrypt'),
     flash = require('express-flash'),
     session = require('express-session'),
+
     products = require('./routes/products'),
     sales = require('./routes/sales'),
     categories = require('./routes/categories'),

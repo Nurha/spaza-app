@@ -1,22 +1,21 @@
-<h1>Category List</h1>
+<div class = "container">
+	<h1>Category List</h1>
 
-<form class="navbar-form navbar-left" role="search" action="/categories/search" method="post">
-	<div class="form-group">
-		<input type="text" class="form-control" name="searchVal" placeholder="Search categories">
-	</div>
-	<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
-</form>
+	<form class="navbar-form navbar-left" role="search" action="/categories/search" method="post">
+		<div class="form-group">
+			<input type="text" class="form-control" name="searchVal" placeholder="Search categories">
+		</div>
+		<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
+	</form>
 
-{{#admin}}
-<a href="/categories/addCategories"  class= "btn btn-primary btn-lg addBtn">
-<span class= "glyphicon glyphicon-plus"></span></a>
-{{/admin}}
-
-<div class = "container-fluid">
+	{{#admin}}
+	<a href="/categories/addCategories"  class= "btn btn-primary btn-lg addBtn">
+	<span class= "glyphicon glyphicon-plus"></span></a>
+	{{/admin}}
 	<div class = "row">
 		<div class = "col-xs-12">
 			<div class = "table-responsive">
-				<table class = "table" id = "categoryList">
+				<table class = "table table-striped" id = "categoryList">
 					<thead>
 						<tr>
 							<th>Category id</th>

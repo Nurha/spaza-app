@@ -15,32 +15,12 @@ exports.check = function(req,res,next){
 	}
 };
 
-// exports.updateStatus = function(req, res, next){
-// 	req.getConnection(function(err, connection){
-// 		var input = JSON.parse(JSON.stringify(req.body));
-// 		var user_password = input.user_password;
-// 		connection.query('SELECT user_password FROM Users WHERE user_password = ?',[user_password] ,function(err, result){
-// 	var count = 0;
-// 	var lock = false;
-// 	count++;
-// 	if(count === 3){
-//
-// 	};
-// 	else (lock === true){
-// 		req.flash('message', 'Sorry, your account has been locked');
-// 		return res.redirect('/');
-// 	};
-// 		)};
-// 	});
-// };
-
 exports.login = function(req, res, next){
 	req.getConnection(function(err, connection){
-		var input = JSON.parse(JSON.stringify(req.body));
-		var user_name = input.user_name;
+		var user_name = req.body.user_name;
 
-		var count = 0;
-		var lock = false;
+		// var count = 0;
+		// var lock = false;
 
 		if(err){
 			return next(err);
@@ -52,7 +32,7 @@ exports.login = function(req, res, next){
 			};
 
 			var user = users[0];
-			bcrypt.compare(input.user_password, user.user_password, function(err, pass){
+			bcrypt.compare(req.body.user_password, user.user_password, function(err, pass){
 				if(err){
 					next(err)
 				};

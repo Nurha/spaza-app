@@ -2,7 +2,6 @@ var bcrypt = require('bcrypt');
 
 exports.showUser = function(req, res, next){
   var admin = req.session.description === 'admin'
-  var customer = req.session.description === 'customer'
   var user = req.session.user;
   req.getConnection(function(err, connection){
     if(err) return next(err);
@@ -14,7 +13,6 @@ exports.showUser = function(req, res, next){
       res.render('User',{
         user : results,
         admin : admin,
-        customer : customer,
         description : description !== 'admin'
       });
     });
@@ -25,11 +23,13 @@ exports.addUser = function(req, res, next){
   req.getConnection(function(err,connection){
     var user_password = req.body.user_password;
     var password_confirm = req.body.password_confirm;
+
     var data = {
       user_name : req.body.user_name,
       user_password : req.body.user_password,
       description : "customer"
     };
+
     if(user_password !== password_confirm){
       req.flash('message', 'passwords do not match');
       res.redirect('/');

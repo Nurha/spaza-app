@@ -1,6 +1,6 @@
 exports.home = function(req, res) {
   var admin =req.session.description ==='admin'
-  console.log(req.session.user);
+  // console.log(req.session.user);
   res.render('home', {
      user_name : req.session.user,
      admin : admin
